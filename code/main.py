@@ -1,5 +1,7 @@
 import pygame, sys
 from settings import *
+from support import *
+from debug import debug
 from world import World
 from ui import Button
 
@@ -12,6 +14,8 @@ class Game:
 		pygame.display.set_caption('Zelda')
 		self.clock = pygame.time.Clock()
 		self.font = pygame.font.Font('graphics/font/Pixel.ttf', 32)
+		self.mouse_pos = pygame.mouse.get_pos()
+		self.mouse_pressed = pygame.mouse.get_pressed()
 
 		self.level = World()
 	
@@ -49,8 +53,9 @@ class Game:
 			exit_button = Button(50, 500, 250, 50, white, black, 'Exit Game', 20)
 			
 			if play_button.is_pressed(mouse_pos, mouse_pressed):
-				print('click')
 				game.play()
+			if load_button.is_pressed(mouse_pos, mouse_pressed):
+				pass
 			if exit_button.is_pressed(mouse_pos, mouse_pressed):
 				pygame.quit()
 				sys.exit()
@@ -72,8 +77,7 @@ class Game:
 					pygame.quit()
 					sys.exit()
 
-				if event.type == pygame.KEYDOWN:
-					print('click')
+				if event.type == pygame.KEYDOWN or  pygame.mouse.get_pressed()[0]:
 					game.menu()
 
 			self.screen.fill('black')

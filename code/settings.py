@@ -1,7 +1,6 @@
-# game setup
 from ctypes.wintypes import RGB
 
-
+# game setup
 WIDTH    = 1280	
 HEIGTH   = 720
 FPS      = 60

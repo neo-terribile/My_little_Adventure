@@ -385,6 +385,7 @@
     <Content Include="graphics\player\right\right_3.png" />
     <Content Include="graphics\player\right_attack\attack_right.png" />
     <Content Include="graphics\player\right_idle\idle_right.png" />
+    <Content Include="graphics\player\ui.png" />
     <Content Include="graphics\player\up\up_0.png" />
     <Content Include="graphics\player\up\up_1.png" />
     <Content Include="graphics\player\up\up_2.png" />
