@@ -14,8 +14,6 @@ class Game:
 		pygame.display.set_caption('Zelda')
 		self.clock = pygame.time.Clock()
 		self.font = pygame.font.Font('graphics/font/Pixel.ttf', 32)
-		self.mouse_pos = pygame.mouse.get_pos()
-		self.mouse_pressed = pygame.mouse.get_pressed()
 
 		self.level = World()
 	
@@ -42,6 +40,7 @@ class Game:
 			self.menu_background = pygame.transform.scale(image_path, (WIDTH,HEIGTH))
 			title = self.font.render('Main Menu', True, black)
 			title_rect = title.get_rect(x=10, y=10)
+			sprite = []
 
 			mouse_pos = pygame.mouse.get_pos()
 			mouse_pressed = pygame.mouse.get_pressed()

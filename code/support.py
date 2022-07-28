@@ -21,10 +21,9 @@ def import_folder(path):
 
 	return surface_list
 
-def get_image(x,y,width,height):
-	def __init__(self):
-		self.sheet = pygame.image.load('graphics/player/ui.png').convert()
-		self.sprite = pygame.Surface([width, height])
-		self.sprite.blit(self.sheet, (0, 0), (x, y, width, height))
-		self.sprite.set_colorkey(black)  # sprite_background off
-		return self.sprite
+def get_sprite(x,y,width,height):
+		sheet = pygame.image.load('graphics/player/ui.png').convert()
+		sprite = pygame.Surface([width, height])
+		sprite.blit(sheet, (0, 0), (x, y, width, height))
+		#self.sprite.set_colorkey(black)  # sprite_background off
+		return sprite
