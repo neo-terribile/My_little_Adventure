@@ -26,5 +26,5 @@ def get_image(x,y,width,height):
 		self.sheet = pygame.image.load('graphics/player/ui.png').convert()
 		self.sprite = pygame.Surface([width, height])
 		self.sprite.blit(self.sheet, (0, 0), (x, y, width, height))
-		self.sprite.set_colorkey(black)  # sprite_background off
+		#self.sprite.set_colorkey(black)  # sprite_background off
 		return self.sprite
