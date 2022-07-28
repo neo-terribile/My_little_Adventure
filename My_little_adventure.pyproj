@@ -43,6 +43,7 @@
     <Folder Include="graphics\" />
     <Folder Include="graphics\font\" />
     <Folder Include="graphics\grass\" />
+    <Folder Include="graphics\img\" />
     <Folder Include="graphics\monsters\" />
     <Folder Include="graphics\monsters\bamboo\" />
     <Folder Include="graphics\monsters\bamboo\attack\" />
@@ -143,9 +144,11 @@
     <Content Include="code\__pycache__\weapons.cpython-310.pyc" />
     <Content Include="code\__pycache__\world.cpython-310.pyc" />
     <Content Include="graphics\font\joystix.ttf" />
+    <Content Include="graphics\font\Pixel.ttf" />
     <Content Include="graphics\grass\grass_1.png" />
     <Content Include="graphics\grass\grass_2.png" />
     <Content Include="graphics\grass\grass_3.png" />
+    <Content Include="graphics\img\menu_background.png" />
     <Content Include="graphics\monsters\bamboo\attack\0.png" />
     <Content Include="graphics\monsters\bamboo\idle\0.png" />
     <Content Include="graphics\monsters\bamboo\idle\1.png" />

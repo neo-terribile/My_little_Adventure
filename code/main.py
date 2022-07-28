@@ -13,7 +13,7 @@ class Game:
 
 		self.level = World()
 	
-	def run(self):
+	def play(self):
 		while True:
 			for event in pygame.event.get():
 				if event.type == pygame.QUIT:
@@ -25,6 +25,19 @@ class Game:
 			pygame.display.update()
 			self.clock.tick(FPS)
 
+	def menu(self):
+		while True:
+			for event in pygame.event.get():
+				if event.type == pygame.QUIT:
+					pygame.quit()
+					sys.exit()
+
+			self.screen.fill('black')
+
+
+			pygame.display.update()
+			self.clock.tick(FPS)
+
 if __name__ == '__main__':
 	game = Game()
-	game.run()
+	game.play()
