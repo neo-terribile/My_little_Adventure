@@ -1,4 +1,7 @@
 # game setup
+from ctypes.wintypes import RGB
+
+
 WIDTH    = 1280	
 HEIGTH   = 720
 FPS      = 60
@@ -17,6 +20,8 @@ WATER_COLOR = '#71ddee'
 UI_BG_COLOR = '#222222'
 UI_BORDER_COLOR = '#111111'
 TEXT_COLOR = '#EEEEEE'
+black =RGB(0,0,0)
+white =RGB(255,255,255)
 
 # ui colors
 HEALTH_COLOR = 'red'
