@@ -1,6 +1,9 @@
 import pygame, sys
 from settings import *
+from support import *
+from debug import debug
 from world import World
+from ui import Button
 
 class Game:
 	def __init__(self):
@@ -10,10 +13,12 @@ class Game:
 		self.screen = pygame.display.set_mode((WIDTH,HEIGTH))
 		pygame.display.set_caption('Zelda')
 		self.clock = pygame.time.Clock()
+		self.font = pygame.font.Font('graphics/font/Pixel.ttf', 32)
+	
 
 		self.level = World()
 	
-	def run(self):
+	def play(self):
 		while True:
 			for event in pygame.event.get():
 				if event.type == pygame.QUIT:
@@ -25,6 +30,65 @@ class Game:
 			pygame.display.update()
 			self.clock.tick(FPS)
 
+	def menu(self):
+		while True:
+			for event in pygame.event.get():
+				if event.type == pygame.QUIT:
+					pygame.quit()
+					sys.exit()
+
+			image_path = pygame.image.load('graphics/img/menu_background.png')
+			self.menu_background = pygame.transform.scale(image_path, (WIDTH,HEIGTH))
+			title = self.font.render('Main Menu', True, black)
+			title_rect = title.get_rect(x=10, y=10)
+
+			mouse_pos = pygame.mouse.get_pos()
+			mouse_pressed = pygame.mouse.get_pressed()
+
+			play_button = Button(50, 100, 250, 50, white, black, 'Start Game', 20)
+			load = button(0, 200, get_sprite(0,98,TILESIZE*4,TILESIZE,ss_ui))
+			options_button = Button(50, 300, 250, 50, white, black, 'Options', 20)
+			credits_button = Button(50, 400, 250, 50, white, black, 'Credits', 20)
+			exit_button = Button(50, 500, 250, 50, white, black, 'Exit Game', 20)
+			
+			if play_button.is_pressed(mouse_pos, mouse_pressed):
+				game.play()
+			if is_pressed(mouse_pos, mouse_pressed, load[1]):
+				print ('click')
+			if exit_button.is_pressed(mouse_pos, mouse_pressed):
+				pygame.quit()
+				sys.exit()
+			
+			self.screen.blit(self.menu_background, (0, 0))
+			self.screen.blit(title, title_rect)
+			self.screen.blit(play_button.image, play_button.rect)
+			self.screen.blit(load[0], load[1])
+			self.screen.blit(options_button.image, options_button.rect)
+			self.screen.blit(credits_button.image, credits_button.rect)
+			self.screen.blit(exit_button.image, exit_button.rect)
+			self.clock.tick(FPS)
+			pygame.display.update()
+
+	def title(self):
+		while True:
+			for event in pygame.event.get():
+				if event.type == pygame.QUIT:
+					pygame.quit()
+					sys.exit()
+
+				if event.type == pygame.KEYDOWN or  pygame.mouse.get_pressed()[0]:
+					game.menu()
+
+			self.screen.fill('white')
+			
+			sprite = get_sprite(0,0,TILESIZE * 4, TILESIZE / 2,ss_ui)
+			self.screen.blit(sprite,(10,10,TILESIZE * 4, TILESIZE / 2))
+			self.screen.blit(sprite,(10,50,TILESIZE * 4, TILESIZE / 2))
+
+
+			pygame.display.update()
+			self.clock.tick(FPS)
+
 if __name__ == '__main__':
 	game = Game()
-	game.run()
+	game.title()
