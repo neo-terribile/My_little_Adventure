@@ -4,7 +4,10 @@ from ctypes.wintypes import RGB
 WIDTH    = 1280	
 HEIGTH   = 720
 FPS      = 60
+
 TILESIZE = 64
+#spritesheets
+ss_ui = 'graphics/player/ui.png'
 
 # ui 
 BAR_HEIGHT = 20
@@ -14,6 +17,8 @@ ITEM_BOX_SIZE = 80
 UI_FONT = 'graphics/font/joystix.ttf'
 UI_FONT_SIZE = 18
 
+menu_button = {'x':0,'y':98,'width':TILESIZE*4,'heigth':TILESIZE,'path':ss_ui}
+#menu_button = [0,98,TILESIZE*4,TILESIZE,ss_ui]
 # general colors
 WATER_COLOR = '#71ddee'
 UI_BG_COLOR = '#222222'
@@ -27,8 +32,6 @@ HEALTH_COLOR = 'red'
 ENERGY_COLOR = 'blue'
 UI_BORDER_COLOR_ACTIVE = 'gold'
 
-#spritesheets
-ss_ui = 'graphics/player/ui.png'
 
 # weapons 
 weapon_data = {

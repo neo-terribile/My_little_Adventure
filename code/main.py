@@ -46,15 +46,15 @@ class Game:
 			mouse_pressed = pygame.mouse.get_pressed()
 
 			play_button = Button(50, 100, 250, 50, white, black, 'Start Game', 20)
-			load_button = button(0, 80, get_sprite(0,80,TILESIZE*4,TILESIZE, ss_ui))
+			load = button(0, 200, get_sprite(0,98,TILESIZE*4,TILESIZE,ss_ui))
 			options_button = Button(50, 300, 250, 50, white, black, 'Options', 20)
 			credits_button = Button(50, 400, 250, 50, white, black, 'Credits', 20)
 			exit_button = Button(50, 500, 250, 50, white, black, 'Exit Game', 20)
 			
 			if play_button.is_pressed(mouse_pos, mouse_pressed):
 				game.play()
-			#if load_button.is_pressed(mouse_pos, mouse_pressed):
-			#	pass
+			if is_pressed(mouse_pos, mouse_pressed, load[1]):
+				print ('click')
 			if exit_button.is_pressed(mouse_pos, mouse_pressed):
 				pygame.quit()
 				sys.exit()
@@ -62,7 +62,7 @@ class Game:
 			self.screen.blit(self.menu_background, (0, 0))
 			self.screen.blit(title, title_rect)
 			self.screen.blit(play_button.image, play_button.rect)
-			self.screen.blit(load_button.sprite, load_button.rect)
+			self.screen.blit(load[0], load[1])
 			self.screen.blit(options_button.image, options_button.rect)
 			self.screen.blit(credits_button.image, credits_button.rect)
 			self.screen.blit(exit_button.image, exit_button.rect)

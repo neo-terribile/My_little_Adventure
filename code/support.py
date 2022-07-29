@@ -30,16 +30,19 @@ def get_sprite(x,y,width,height,path):
 	return sprite
 
 def button(x,y,sprite):
+	button = []
 	rect = sprite.get_rect()
 	rect.x = x
 	rect.y = y
-	sprite.blit(sprite, rect)
-	
-	return rect, sprite
 
-	#def is_pressed(self, pos, pressed):
-	#	if self.rect.collidepoint(pos):
-	#		if pressed[0]:
-	#			return True
-	#		return False
-	#	return False
+	button.append(sprite)
+	button.append(rect)
+	
+	return button
+
+def is_pressed(pos, pressed, rect):
+	if rect.collidepoint(pos):
+		if pressed[0]:
+			return True
+		return False
+	return False
