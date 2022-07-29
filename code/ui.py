@@ -82,15 +82,6 @@ class UI:
 		self.weapon_overlay(player.weapon_index,not player.can_switch_weapon)
 		self.magic_overlay(player.magic_index,not player.can_switch_magic)
 
-class Spritesheet:
-	def __init__(self, file):
-		self.sheet = pygame.image.load(file).convert()
-
-	def get_sprite(self, x, y, width, height):
-		sprite = pygame.Surface([width, height])
-		sprite.blit(self.sheet, (0, 0), (x, y, width, height))
-		sprite.set_colorkey(black)  # sprite_background off
-		return sprite
 
 class Button:
 	def __init__(self, x, y, width, height, fg, bg, content, fontsize):

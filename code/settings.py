@@ -27,6 +27,9 @@ HEALTH_COLOR = 'red'
 ENERGY_COLOR = 'blue'
 UI_BORDER_COLOR_ACTIVE = 'gold'
 
+#spritesheets
+ss_ui = 'graphics/player/ui.png'
+
 # weapons 
 weapon_data = {
 	'sword': {'cooldown': 100, 'damage': 15,'graphic':'graphics/weapons/sword/full.png'},
