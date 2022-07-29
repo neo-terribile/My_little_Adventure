@@ -14,6 +14,7 @@ class Game:
 		pygame.display.set_caption('Zelda')
 		self.clock = pygame.time.Clock()
 		self.font = pygame.font.Font('graphics/font/Pixel.ttf', 32)
+	
 
 		self.level = World()
 	
@@ -40,7 +41,6 @@ class Game:
 			self.menu_background = pygame.transform.scale(image_path, (WIDTH,HEIGTH))
 			title = self.font.render('Main Menu', True, black)
 			title_rect = title.get_rect(x=10, y=10)
-			sprite = []
 
 			mouse_pos = pygame.mouse.get_pos()
 			mouse_pressed = pygame.mouse.get_pressed()
@@ -79,7 +79,11 @@ class Game:
 				if event.type == pygame.KEYDOWN or  pygame.mouse.get_pressed()[0]:
 					game.menu()
 
-			self.screen.fill('black')
+			self.screen.fill('white')
+			
+			sprite = get_sprite(0,0,TILESIZE * 4, TILESIZE / 2)
+			self.screen.blit(sprite,(10,10,TILESIZE * 4, TILESIZE / 2))
+
 
 			pygame.display.update()
 			self.clock.tick(FPS)
