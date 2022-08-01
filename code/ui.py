@@ -1,7 +1,7 @@
 import pygame
 from settings import * 
 from support import *
-from debug import debug
+
 
 class UI:
 	def __init__(self):
@@ -31,13 +31,14 @@ class UI:
 
 		# converting stat to pixel 
 		ratio = current / ammount
-		width = 250 * ratio
+		width = BAR_WIDTH * ratio
 		bar = pygame.Surface([width, BAR_HEIGHT])
 		bar.blit(self.sheet, (0, 0), (x, y, width, BAR_HEIGHT))
 		bar.set_colorkey('black')
+
 		# drawing the bar
 		self.screen.blit(self.bg,(dx, dy))
-		self.screen.blit(bar,(dx+3, dy+4))
+		self.screen.blit(bar,(dx + 3, dy + 4))
  
 	#show exp
 	def show_exp(self,exp):
@@ -76,7 +77,7 @@ class UI:
 		# display ui
 	def display(self,player):
 		self.show_bars(player.health,player.stats['health'],3,36,10,10)
-		self.show_bars(player.energy,player.stats['energy'],3,68,10,60)
+		self.show_bars(player.energy,player.stats['energy'],3,68,10,52)
 
 		self.show_exp(player.exp)
 

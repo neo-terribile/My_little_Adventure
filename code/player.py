@@ -3,6 +3,7 @@ from settings import *
 from support import import_folder
 from entity import Entity
 
+
 class Player(Entity):
 	def __init__(self,pos,groups,obstacle_sprites,create_attack,destroy_attack,create_magic):
 		super().__init__(groups)
@@ -38,10 +39,13 @@ class Player(Entity):
 
 		# stats
 		self.stats = {'health': 100,'energy':60,'attack': 10,'magic': 4,'speed': 5}
-		self.health = self.stats['health'] * 0.5
-		self.energy = self.stats['energy'] * 0.2
-		self.exp = 123
+		self.health = self.stats['health'] * 0.1
+		self.energy = self.stats['energy'] * 0.9
 		self.speed = self.stats['speed']
+
+		# loot
+		self.exp = 123
+		self.gold = 0
 
 	# import player assets
 	def import_player_assets(self):
@@ -92,6 +96,10 @@ class Player(Entity):
 				strength = list(magic_data.values())[self.magic_index]['strength'] + self.stats['magic']
 				cost = list(magic_data.values())[self.magic_index]['cost']
 				self.create_magic(style,strength,cost)
+
+			# options
+			if pygame.key.get_pressed()[pygame.K_ESCAPE]:
+				pass
 
 			if keys[pygame.K_q] and self.can_switch_weapon:
 				self.can_switch_weapon = False

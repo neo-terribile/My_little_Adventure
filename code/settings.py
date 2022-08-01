@@ -6,8 +6,10 @@ HEIGTH   = 720
 FPS      = 60
 
 TILESIZE = 64
+
 #spritesheets
 ss_ui = 'graphics/player/ui.png'
+
 
 # ui 
 BAR_HEIGHT = TILESIZE / 2 -8

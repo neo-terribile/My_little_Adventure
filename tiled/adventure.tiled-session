@@ -5,10 +5,10 @@
     },
     "activeFile": "tilemaps/hometown/hometown.tmx",
     "expandedProjectPaths": [
-        "tilesets",
         "tilemaps/hometown",
-        "tilemaps",
-        "."
+        ".",
+        "tilesets",
+        "tilemaps"
     ],
     "fileStates": {
         "blocks.tsx": {
@@ -25,10 +25,10 @@
         },
         "tilemaps/hometown/hometown.tmx": {
             "scale": 0.5264583333333334,
-            "selectedLayer": 0,
+            "selectedLayer": 2,
             "viewCenter": {
                 "x": 957.3407202216066,
-                "y": 391.2940245350218
+                "y": 643.9256034823902
             }
         },
         "tilemaps/tilesets/blocks.tsx": {
