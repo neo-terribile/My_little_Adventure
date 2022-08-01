@@ -97,10 +97,6 @@ class Player(Entity):
 				cost = list(magic_data.values())[self.magic_index]['cost']
 				self.create_magic(style,strength,cost)
 
-			# options
-			if pygame.key.get_pressed()[pygame.K_ESCAPE]:
-				pass
-
 			if keys[pygame.K_q] and self.can_switch_weapon:
 				self.can_switch_weapon = False
 				self.weapon_switch_time = pygame.time.get_ticks()
