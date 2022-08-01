@@ -1,6 +1,7 @@
 from csv import reader
 from os import walk
 import pygame
+from settings import *
 
 def import_csv_layout(path):
 	terrain_map = []
@@ -29,15 +30,23 @@ def get_sprite(x,y,width,height,path):
 
 	return sprite
 
-def button(x,y,sprite):
+def button(x,y,sprite,content):
 	button = []
 	rect = sprite.get_rect()
 	rect.x = x
 	rect.y = y
+	width = rect.width
+	height = rect.height
+
+	font = pygame.font.Font('graphics/font/Pixel.ttf', 20)
+	text = font.render(content, True, black)
+	text_rect = text.get_rect(center=(x + (width / 2), (height / 2) + y))
 
 	button.append(sprite)
 	button.append(rect)
-	
+	button.append(text)
+	button.append(text_rect)
+
 	return button
 
 def is_pressed(pos, pressed, rect):

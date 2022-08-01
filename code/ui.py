@@ -1,16 +1,16 @@
 import pygame
 from settings import * 
+from support import *
+from debug import debug
 
 class UI:
 	def __init__(self):
 		
 		# general 
-		self.display_surface = pygame.display.get_surface()
+		self.screen = pygame.display.get_surface()
 		self.font = pygame.font.Font(UI_FONT,UI_FONT_SIZE)
+		self.sheet = pygame.image.load(ss_ui).convert_alpha()
 
-		# bar setup 
-		self.health_bar_rect = pygame.Rect(10,10,HEALTH_BAR_WIDTH,BAR_HEIGHT)
-		self.energy_bar_rect = pygame.Rect(10,34,ENERGY_BAR_WIDTH,BAR_HEIGHT)
 
 		# convert weapon dictionary
 		self.weapon_graphics = []
@@ -25,38 +25,38 @@ class UI:
 			magic = pygame.image.load(magic['graphic']).convert_alpha()
 			self.magic_graphics.append(magic)
 
+	#show bar
+	def show_bars(self,current,ammount,x,y,dx,dy):
+		bg = get_sprite(0,0,256, 32,ss_ui)
 
-	def show_bar(self,current,max_amount,bg_rect,color):
-		# draw bg 
-		pygame.draw.rect(self.display_surface,UI_BG_COLOR,bg_rect)
-
-		# converting stat to pixel
-		ratio = current / max_amount
-		current_width = bg_rect.width * ratio
-		current_rect = bg_rect.copy()
-		current_rect.width = current_width
-
+		# converting stat to pixel 
+		ratio = current / ammount
+		width = 250 * ratio
+		bar = pygame.Surface([width, BAR_HEIGHT])
+		bar.blit(self.sheet, (0, 0), (x, y, width, BAR_HEIGHT))
+		bar.set_colorkey('black')
 		# drawing the bar
-		pygame.draw.rect(self.display_surface,color,current_rect)
-		pygame.draw.rect(self.display_surface,UI_BORDER_COLOR,bg_rect,3)
-
+		self.screen.blit(bg,(dx, dy))
+		self.screen.blit(bar,(dx+3, dy+4))
+ 
+	#show exp
 	def show_exp(self,exp):
 		text_surf = self.font.render(str(int(exp)),False,TEXT_COLOR)
-		x = self.display_surface.get_size()[0] - 20
-		y = self.display_surface.get_size()[1] - 20
+		x = self.screen.get_size()[0] - 20
+		y = self.screen.get_size()[1] - 20
 		text_rect = text_surf.get_rect(bottomright = (x,y))
 
-		pygame.draw.rect(self.display_surface,UI_BG_COLOR,text_rect.inflate(20,20))
-		self.display_surface.blit(text_surf,text_rect)
-		pygame.draw.rect(self.display_surface,UI_BORDER_COLOR,text_rect.inflate(20,20),3)
+		pygame.draw.rect(self.screen,UI_BG_COLOR,text_rect.inflate(20,20))
+		self.screen.blit(text_surf,text_rect)
+		pygame.draw.rect(self.screen,UI_BORDER_COLOR,text_rect.inflate(20,20),3)
 
 	def selection_box(self,left,top, has_switched):
 		bg_rect = pygame.Rect(left,top,ITEM_BOX_SIZE,ITEM_BOX_SIZE)
-		pygame.draw.rect(self.display_surface,UI_BG_COLOR,bg_rect)
+		pygame.draw.rect(self.screen,UI_BG_COLOR,bg_rect)
 		if has_switched:
-			pygame.draw.rect(self.display_surface,UI_BORDER_COLOR_ACTIVE,bg_rect,3)
+			pygame.draw.rect(self.screen,UI_BORDER_COLOR_ACTIVE,bg_rect,3)
 		else:
-			pygame.draw.rect(self.display_surface,UI_BORDER_COLOR,bg_rect,3)
+			pygame.draw.rect(self.screen,UI_BORDER_COLOR,bg_rect,3)
 		return bg_rect
 
 	def weapon_overlay(self,weapon_index,has_switched):
@@ -64,52 +64,21 @@ class UI:
 		weapon_surf = self.weapon_graphics[weapon_index]
 		weapon_rect = weapon_surf.get_rect(center = bg_rect.center)
 
-		self.display_surface.blit(weapon_surf,weapon_rect)
+		self.screen.blit(weapon_surf,weapon_rect)
 
 	def magic_overlay(self,magic_index,has_switched):
 		bg_rect = self.selection_box(80,635,has_switched)
 		magic_surf = self.magic_graphics[magic_index]
 		magic_rect = magic_surf.get_rect(center = bg_rect.center)
 
-		self.display_surface.blit(magic_surf,magic_rect)
-
+		self.screen.blit(magic_surf,magic_rect)
+	
+		# display ui
 	def display(self,player):
-		self.show_bar(player.health,player.stats['health'],self.health_bar_rect,HEALTH_COLOR)
-		self.show_bar(player.energy,player.stats['energy'],self.energy_bar_rect,ENERGY_COLOR)
+		self.show_bars(player.health,player.stats['health'],3,36,10,10)
+		self.show_bars(player.energy,player.stats['energy'],3,68,10,60)
 
 		self.show_exp(player.exp)
 
 		self.weapon_overlay(player.weapon_index,not player.can_switch_weapon)
 		self.magic_overlay(player.magic_index,not player.can_switch_magic)
-
-
-class Button:
-	def __init__(self, x, y, width, height, fg, bg, content, fontsize):
-		self.font = pygame.font.Font('graphics/font/Pixel.ttf', fontsize)
-		self.content = content
-
-		self.x = x
-		self.y = y
-		self.width = width
-		self.height = height
-
-		self.fg = fg
-		self.bg = bg
-
-		self.image = pygame.Surface((self.width, self.height))
-		self.image.fill(self.bg)
-		self.rect = self.image.get_rect()
-
-		self.rect.x = self.x
-		self.rect.y = self.y
-
-		self.text = self.font.render(self.content, True, self.fg)
-		self.text_rect = self.text.get_rect(center=(self.width / 2, self.height / 2))
-		self.image.blit(self.text, self.text_rect)
-
-	def is_pressed(self, pos, pressed):
-		if self.rect.collidepoint(pos):
-			if pressed[0]:
-				return True
-			return False
-		return False

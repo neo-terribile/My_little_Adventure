@@ -10,15 +10,13 @@ TILESIZE = 64
 ss_ui = 'graphics/player/ui.png'
 
 # ui 
-BAR_HEIGHT = 20
-HEALTH_BAR_WIDTH = 200
-ENERGY_BAR_WIDTH = 140
+BAR_HEIGHT = TILESIZE / 2 -8
+BAR_WIDTH = TILESIZE * 4 -6
 ITEM_BOX_SIZE = 80
 UI_FONT = 'graphics/font/joystix.ttf'
 UI_FONT_SIZE = 18
 
-menu_button = {'x':0,'y':98,'width':TILESIZE*4,'heigth':TILESIZE,'path':ss_ui}
-#menu_button = [0,98,TILESIZE*4,TILESIZE,ss_ui]
+
 # general colors
 WATER_COLOR = '#71ddee'
 UI_BG_COLOR = '#222222'

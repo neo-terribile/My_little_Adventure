@@ -36,7 +36,8 @@ class Enemy(Entity):
 		self.can_attack = True
 		self.attack_time = None
 		self.attack_cooldown = 400
-
+	
+	# import graphics
 	def import_graphics(self,name):
 		self.animations = {'idle':[],'move':[],'attack':[]}
 		main_path = f'graphics/monsters/{name}/'
