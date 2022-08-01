@@ -10,6 +10,7 @@ class UI:
 		self.screen = pygame.display.get_surface()
 		self.font = pygame.font.Font(UI_FONT,UI_FONT_SIZE)
 		self.sheet = pygame.image.load(ss_ui).convert_alpha()
+		self.bg = get_sprite(0,0,256, 32,ss_ui)
 
 
 		# convert weapon dictionary
@@ -27,7 +28,6 @@ class UI:
 
 	#show bar
 	def show_bars(self,current,ammount,x,y,dx,dy):
-		bg = get_sprite(0,0,256, 32,ss_ui)
 
 		# converting stat to pixel 
 		ratio = current / ammount
@@ -36,7 +36,7 @@ class UI:
 		bar.blit(self.sheet, (0, 0), (x, y, width, BAR_HEIGHT))
 		bar.set_colorkey('black')
 		# drawing the bar
-		self.screen.blit(bg,(dx, dy))
+		self.screen.blit(self.bg,(dx, dy))
 		self.screen.blit(bar,(dx+3, dy+4))
  
 	#show exp
