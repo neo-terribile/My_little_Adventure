@@ -9,6 +9,7 @@ TILESIZE = 64
 
 #spritesheets
 ss_ui = 'graphics/player/ui.png'
+ss_player = 'graphics/player/player.png'
 
 
 # ui 

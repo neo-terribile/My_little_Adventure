@@ -47,13 +47,23 @@ class Player(Entity):
 		self.exp = 123
 		self.gold = 0
 
+	## import player assets
+	#def import_player_assets(self):
+	#	sheet = pygame.image.load(ss_player).convert_alpha()
+	#	self.animations = {	'up': [],'down': [],'left': [],'right': [],
+	#						'up_idle':[],'down_idle':[],'left_idle':[],'right_idle':[],
+	#						'up_attack':[],'down_attack':[],'left_attack':[],'right_attack':[]}
+
+			
+			
+
 	# import player assets
 	def import_player_assets(self):
 		character_path = 'graphics/player/'
-		self.animations = {'up': [],'down': [],'left': [],'right': [],
-			'right_idle':[],'left_idle':[],'up_idle':[],'down_idle':[],
-			'right_attack':[],'left_attack':[],'up_attack':[],'down_attack':[]}
-
+		self.animations = {	'up': [],'down': [],'left': [],'right': [],
+							'up_idle':[],'down_idle':[],'left_idle':[],'right_idle':[],
+							'up_attack':[],'down_attack':[],'left_attack':[],'right_attack':[]}
+	
 		for animation in self.animations.keys():
 			full_path = character_path + animation
 			self.animations[animation] = import_folder(full_path)

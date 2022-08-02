@@ -11,6 +11,7 @@ def import_csv_layout(path):
 		for row in layout:
 			terrain_map.append(list(row))
 		return terrain_map
+
 # import folder
 def import_folder(path):
 	surface_list = []
@@ -22,6 +23,7 @@ def import_folder(path):
 			surface_list.append(image_surf)
 
 	return surface_list
+
 # get sprite
 def get_sprite(x,y,width,height,path):
 	sheet = pygame.image.load(path).convert_alpha() 
@@ -30,6 +32,7 @@ def get_sprite(x,y,width,height,path):
 	sprite.set_colorkey(black)  # sprite_background off
 
 	return sprite
+
 # create butten
 def button(x,y,sprite,content):
 	button = []
