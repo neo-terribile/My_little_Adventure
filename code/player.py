@@ -1,6 +1,6 @@
 import pygame 
 from settings import *
-from support import import_folder
+from support import *
 from entity import Entity
 from debug import debug
 
@@ -48,26 +48,42 @@ class Player(Entity):
 		self.exp = 123
 		self.gold = 0
 
+	# import player assets
+	def import_player_assets(self):
+		sheet = pygame.image.load(ss_player).convert_alpha()
+		self.animations =		{'up': [],'down': [],'left': [],'right': [],
+								'up_idle':[],'down_idle':[],'left_idle':[],'right_idle':[],
+								'up_attack':[],'down_attack':[],'left_attack':[],'right_attack':[]}
+		
+		
+		for animation in self.animations.keys():
+			if animation == 'up': j = 0
+			if animation == 'down': j = 1
+			if animation == 'left': j = 2
+			if animation == 'right': j = 3
+			if animation == 'up_idle': j = 4
+			if animation == 'down_idle': j = 5
+			if animation == 'left_idle': j = 6
+			if animation == 'right_idle': j = 7
+			if animation == 'up_attack': j = 8
+			if animation == 'down_attack': j = 9
+			if animation == 'left_attack': j = 10
+			if animation == 'right_attack': j = 11
+			self.animations[animation] = import_animations(sheet,TILESIZE,TILESIZE,3,j)
+
+
+			
+
 	## import player assets
 	#def import_player_assets(self):
-	#	sheet = pygame.image.load(ss_player).convert_alpha()
+	#	character_path = 'graphics/player/'
 	#	self.animations = {	'up': [],'down': [],'left': [],'right': [],
 	#						'up_idle':[],'down_idle':[],'left_idle':[],'right_idle':[],
 	#						'up_attack':[],'down_attack':[],'left_attack':[],'right_attack':[]}
-
-			
-			
-
-	# import player assets
-	def import_player_assets(self):
-		character_path = 'graphics/player/'
-		self.animations = {	'up': [],'down': [],'left': [],'right': [],
-							'up_idle':[],'down_idle':[],'left_idle':[],'right_idle':[],
-							'up_attack':[],'down_attack':[],'left_attack':[],'right_attack':[]}
-	
-		for animation in self.animations.keys():
-			full_path = character_path + animation
-			self.animations[animation] = import_folder(full_path)
+	#
+	#	for animation in self.animations.keys():
+	#		full_path = character_path + animation
+	#		self.animations[animation] = import_folder(full_path)
 
 	# player input
 	def input(self):
