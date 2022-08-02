@@ -30,7 +30,7 @@ def import_animations(sheet,width,height,frames,j):
 	i = 0
 	while i <= frames:
 			sprite = pygame.Surface([width, height])
-			sprite.blit(sheet, (0,0), (width * i, height * j, width, height))
+			sprite.blit(sheet, (0,0), (width *i, height * j, width, height))
 			sprite.set_colorkey(black)  # sprite_background off
 			surface_list.append(sprite)
 			i +=1
@@ -42,7 +42,7 @@ def import_animations(sheet,width,height,frames,j):
 def get_sprite(x,y,width,height,path):
 	sheet = pygame.image.load(path).convert_alpha() 
 	sprite = pygame.Surface([width, height])
-	sprite.blit(sheet, (0, 0), (x, y, width, height))
+	sprite.blit(sheet,(0,0), (x, y, width, height))
 	sprite.set_colorkey(black)  # sprite_background off
 
 	return sprite

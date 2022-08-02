@@ -9,6 +9,7 @@ class Player(Entity):
 	def __init__(self,pos,groups,obstacle_sprites,create_attack,destroy_attack,create_magic):
 		super().__init__(groups)
 		self.image = pygame.image.load('graphics/test/player.png').convert_alpha()
+		self.image = get_sprite(0,TILESIZE * 9,TILESIZE,TILESIZE,ss_player)
 		self.rect = self.image.get_rect(topleft = pos)
 		self.hitbox = self.rect.inflate(0,-26)
 
@@ -43,31 +44,31 @@ class Player(Entity):
 		self.health = self.stats['health'] * 0.1
 		self.energy = self.stats['energy'] * 0.9
 		self.speed = self.stats['speed']
+		self.exp = 123
 
 		# loot
-		self.exp = 123
 		self.gold = 0
 
 	# import player assets
 	def import_player_assets(self):
 		sheet = pygame.image.load(ss_player).convert_alpha()
-		self.animations =		{'up': [],'down': [],'left': [],'right': [],
-								'up_idle':[],'down_idle':[],'left_idle':[],'right_idle':[],
-								'up_attack':[],'down_attack':[],'left_attack':[],'right_attack':[]}
-			
+		self.animations =	{'up': [],'down': [],'left': [],'right': [],
+							'up_idle':[],'down_idle':[],'left_idle':[],'right_idle':[],
+							'up_attack':[],'down_attack':[],'left_attack':[],'right_attack':[]}	
+		
 		for animation in self.animations.keys():
-			if animation == 'up': j = 0
-			if animation == 'down': j = 1
-			if animation == 'left': j = 2
-			if animation == 'right': j = 3
-			if animation == 'up_attack': j = 4
-			if animation == 'down_attack': j = 5
-			if animation == 'left_attack': j = 6
-			if animation == 'right_attack': j = 7
-			if animation == 'up_idle': j = 8
-			if animation == 'down_idle': j = 9
-			if animation == 'left_idle': j = 10
-			if animation == 'right_idle': j = 11
+			if animation == 'up'			: j = 0
+			if animation == 'down'			: j = 1
+			if animation == 'left'			: j = 2
+			if animation == 'right'			: j = 3
+			if animation == 'up_attack'		: j = 4
+			if animation == 'down_attack'	: j = 5
+			if animation == 'left_attack'	: j = 6
+			if animation == 'right_attack'	: j = 7
+			if animation == 'up_idle'		: j = 8
+			if animation == 'down_idle'		: j = 9
+			if animation == 'left_idle'		: j = 10
+			if animation == 'right_idle'	: j = 11
 			self.animations[animation] = import_animations(sheet,TILESIZE,TILESIZE,3,j)
 
 	# player input
