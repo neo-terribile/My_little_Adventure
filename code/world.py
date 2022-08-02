@@ -2,29 +2,24 @@ import pygame
 from settings import *
 from tile import Tile
 from player import Player
-from debug import debug
 from support import *
 from random import choice
 from weapon import Weapon
 from ui import UI
 from enemy import Enemy
 
+# creates World
 class World:
 	def __init__(self):
-
 		# get the display surface 
 		self.display_surface = pygame.display.get_surface()
-
 		# sprite group setup
 		self.visible_sprites = YSortCameraGroup()
 		self.obstacle_sprites = pygame.sprite.Group()
-
 		# attack sprites
 		self.current_attack = None
-
 		# sprite setup
 		self.create_map()
-
 		# user interface 
 		self.ui = UI()
 
@@ -52,11 +47,9 @@ class World:
 						if style == 'grass':
 							random_grass_image = choice(graphics['grass'])
 							Tile((x,y),[self.visible_sprites,self.obstacle_sprites],'grass',random_grass_image)
-
 						if style == 'object':
 							surf = graphics['objects'][int(col)]
 							Tile((x,y),[self.visible_sprites,self.obstacle_sprites],'object',surf)
-
 						if style == 'entities':
 							if col == '0':
 								self.player = Player(

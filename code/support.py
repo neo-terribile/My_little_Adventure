@@ -3,6 +3,7 @@ from os import walk
 import pygame
 from settings import *
 
+# import csv
 def import_csv_layout(path):
 	terrain_map = []
 	with open(path) as level_map:
@@ -10,7 +11,7 @@ def import_csv_layout(path):
 		for row in layout:
 			terrain_map.append(list(row))
 		return terrain_map
-
+# import folder
 def import_folder(path):
 	surface_list = []
 
@@ -21,7 +22,7 @@ def import_folder(path):
 			surface_list.append(image_surf)
 
 	return surface_list
-
+# get sprite
 def get_sprite(x,y,width,height,path):
 	sheet = pygame.image.load(path).convert_alpha() 
 	sprite = pygame.Surface([width, height])
@@ -29,7 +30,7 @@ def get_sprite(x,y,width,height,path):
 	sprite.set_colorkey('black')  # sprite_background off
 
 	return sprite
-
+# create butten
 def button(x,y,sprite,content):
 	button = []
 	rect = sprite.get_rect()
@@ -49,9 +50,21 @@ def button(x,y,sprite,content):
 
 	return button
 
+# check if pressed
 def is_pressed(pos, pressed, rect):
 	if rect.collidepoint(pos):
 		if pressed[0]:
 			return True
 		return False
 	return False
+
+# get mouse states
+def mouse():
+	mouse =[]
+	mouse_pos = pygame.mouse.get_pos()
+	mouse_pressed = pygame.mouse.get_pressed()
+
+	mouse.append(mouse_pos)
+	mouse.append(mouse_pressed)
+
+	return mouse
