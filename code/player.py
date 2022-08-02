@@ -179,7 +179,6 @@ class Player(Entity):
 		# set the image
 		self.image = animation[int(self.frame_index)]
 		self.rect = self.image.get_rect(center = self.hitbox.center)
-		debug(len(animation))
 	
 	# update player
 	def update(self):
