@@ -1,7 +1,6 @@
 import pygame, sys
 from settings import *
 from support import *
-from debug import debug
 from world import World
 
 class Game:
@@ -43,9 +42,9 @@ class Game:
 			title = self.font.render('Paus', True, black)
 			title_rect = title.get_rect(x=TILESIZE, y=10)
 
-			resume = button(TILESIZE, TILESIZE*2, get_sprite(0,TILESIZE * 2,TILESIZE*4,TILESIZE,ss_ui),'Resume')
-			load = button(TILESIZE, TILESIZE*4, get_sprite(0,TILESIZE * 2,TILESIZE*4,TILESIZE,ss_ui),'Save / Load')
-			quit = button(TILESIZE, TILESIZE*6, get_sprite(0,TILESIZE * 2,TILESIZE*4,TILESIZE,ss_ui),'Quit')
+			resume	= button(TILESIZE, TILESIZE * 2,	get_sprite(0, TILESIZE * 2, TILESIZE * 4, TILESIZE, ss_ui),'Resume')
+			load	= button(TILESIZE, TILESIZE * 4,	get_sprite(0, TILESIZE * 2, TILESIZE * 4, TILESIZE, ss_ui),'Save / Load')
+			quit	= button(TILESIZE, TILESIZE * 6,	get_sprite(0, TILESIZE * 2, TILESIZE * 4, TILESIZE, ss_ui),'Quit')
 
 			if is_pressed(mouse()[0], mouse()[1], resume[1]):
 				game.play()
@@ -57,12 +56,12 @@ class Game:
 			self.screen.blit(menu_background, (0, 0))
 			self.screen.blit(title, title_rect)
 
-			self.screen.blit(resume[0], resume[1])
-			self.screen.blit(resume[2], resume[3])
-			self.screen.blit(load[0], load[1])
-			self.screen.blit(load[2], load[3])
-			self.screen.blit(quit[0], quit[1])
-			self.screen.blit(quit[2], quit[3])
+			self.screen.blit(resume[0],	resume[1])
+			self.screen.blit(resume[2],	resume[3])
+			self.screen.blit(load[0],	load[1])
+			self.screen.blit(load[2],	load[3])
+			self.screen.blit(quit[0],	quit[1])
+			self.screen.blit(quit[2],	quit[3])
 
 			self.clock.tick(FPS)
 			pygame.display.update()
@@ -88,9 +87,9 @@ class Game:
 			title = self.font.render('Main Menu', True, black)
 			title_rect = title.get_rect(x=TILESIZE, y=10)
 
-			new = button(TILESIZE, TILESIZE*2, get_sprite(0,TILESIZE * 2,TILESIZE*4,TILESIZE,ss_ui),'New Game')
-			load = button(TILESIZE, TILESIZE*4, get_sprite(0,TILESIZE * 2,TILESIZE*4,TILESIZE,ss_ui),'Save/Load')
-			exit = button(TILESIZE, TILESIZE*6, get_sprite(0,TILESIZE * 2,TILESIZE*4,TILESIZE,ss_ui),'Exit')
+			new		= button(TILESIZE, TILESIZE * 2, get_sprite(0, TILESIZE * 2, TILESIZE * 4,TILESIZE, ss_ui),'New Game')
+			load	= button(TILESIZE, TILESIZE * 4, get_sprite(0, TILESIZE * 2, TILESIZE * 4,TILESIZE, ss_ui),'Save/Load')
+			exit	= button(TILESIZE, TILESIZE * 6, get_sprite(0, TILESIZE * 2, TILESIZE * 4,TILESIZE, ss_ui),'Exit')
 
 			
 			if is_pressed(mouse()[0], mouse()[1], new[1]):
@@ -101,14 +100,14 @@ class Game:
 				pygame.quit()
 				sys.exit()
 
-			self.screen.blit(menu_background, (0, 0))
-			self.screen.blit(title, title_rect)
-			self.screen.blit(new[0], new[1])
-			self.screen.blit(new[2], new[3])
-			self.screen.blit(load[0], load[1])
-			self.screen.blit(load[2], load[3])
-			self.screen.blit(exit[0], exit[1])
-			self.screen.blit(exit[2], exit[3])
+			self.screen.blit(menu_background,	(0, 0))
+			self.screen.blit(title,				title_rect)
+			self.screen.blit(new[0],			new[1])
+			self.screen.blit(new[2],			new[3])
+			self.screen.blit(load[0],			load[1])
+			self.screen.blit(load[2],			load[3])
+			self.screen.blit(exit[0],			exit[1])
+			self.screen.blit(exit[2],			exit[3])
 
 			self.clock.tick(FPS)
 			pygame.display.update()

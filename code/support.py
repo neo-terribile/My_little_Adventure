@@ -27,7 +27,7 @@ def get_sprite(x,y,width,height,path):
 	sheet = pygame.image.load(path).convert_alpha() 
 	sprite = pygame.Surface([width, height])
 	sprite.blit(sheet, (0, 0), (x, y, width, height))
-	sprite.set_colorkey('black')  # sprite_background off
+	sprite.set_colorkey(black)  # sprite_background off
 
 	return sprite
 # create butten

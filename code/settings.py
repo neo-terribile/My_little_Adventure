@@ -24,8 +24,9 @@ WATER_COLOR = '#71ddee'
 UI_BG_COLOR = '#222222'
 UI_BORDER_COLOR = '#111111'
 TEXT_COLOR = '#EEEEEE'
-black =RGB(0,0,0)
-white =RGB(255,255,255)
+black = RGB(0,0,0)
+white = RGB(255,255,255)
+green = RGB(0,255,0)
 
 # ui colors
 HEALTH_COLOR = 'red'
