@@ -3,12 +3,12 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "tilemaps/hometown/hometown.tmx",
+    "activeFile": "tilemaps/world1/world1.tmx",
     "expandedProjectPaths": [
         "tilesets",
         "tilemaps/world1",
-        "tilemaps",
         ".",
+        "tilemaps",
         "tilemaps/hometown"
     ],
     "fileStates": {
@@ -115,12 +115,13 @@
     "map.width": 60,
     "openFiles": [
         "tilemaps/hometown/hometown.tmx",
-        "tilemaps/world1/welt1.tmx"
+        "tilemaps/world1/world1.tmx"
     ],
     "project": "adventure.tiled-project",
     "recentFiles": [
-        "tilemaps/world1/welt1.tmx",
         "tilemaps/hometown/hometown.tmx",
+        "tilemaps/world1/world1.tmx",
+        "tilemaps/world1/welt1.tmx",
         "tilemaps/welt1.tmx",
         "tilesets/entities.tsx",
         "tilesets/details.tsx",

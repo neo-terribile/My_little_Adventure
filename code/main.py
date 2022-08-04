@@ -4,6 +4,8 @@ from settings import *
 from support import *
 from world import World
 
+world = None
+
 class Game:
 	def __init__(self):
 		# general setup

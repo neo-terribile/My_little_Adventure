@@ -8,36 +8,32 @@ from weapon import Weapon
 from ui import UI
 from enemy import Enemy
 
+
 # creates World
 class World:
 	def __init__(self):
 		# get the display surface 
 		self.display_surface = pygame.display.get_surface()
+		self.lvl = 'world1'
+
 		# sprite group setup
-		self.visible_sprites = YSortCameraGroup()
+		self.visible_sprites = YSortCameraGroup(self.lvl)
 		self.obstacle_sprites = pygame.sprite.Group()
 		# attack sprites
 		self.current_attack = None
-		# map
-		self.map = None
 		# sprite setup
-		self.map_selection()
 		self.create_map()
 		# user interface 
 		self.ui = UI()
 
-	#map selecton
-	def map_selection(self):
-		if self.map == None:
-			self.map = 'welt1'
 
 	# create map
 	def create_map(self):	
 		layouts = {
-			'boundary': import_csv_layout('maps/' + self.map + '/' + self.map + '_blocks.csv'),
-			'grass': import_csv_layout('maps/' + self.map + '/' + self.map + '_grass.csv'),
-			'object': import_csv_layout('maps/' + self.map + '/' + self.map + '_objects.csv'),
-			'entities': import_csv_layout('maps/' + self.map + '/' + self.map + '_entities.csv')
+			'boundary': import_csv_layout('maps/' + self.lvl + '/' + self.lvl + '_blocks.csv'),
+			'grass': import_csv_layout('maps/' + self.lvl + '/' + self.lvl + '_grass.csv'),
+			'object': import_csv_layout('maps/' + self.lvl + '/' + self.lvl + '_objects.csv'),
+			'entities': import_csv_layout('maps/' + self.lvl + '/' + self.lvl + '_entities.csv')
 		}
 		graphics = {
 			'grass': import_folder('graphics/grass'),
@@ -106,8 +102,7 @@ class World:
 
 # sorts the sprites for 3D effect
 class YSortCameraGroup(pygame.sprite.Group):
-	def __init__(self):
-
+	def __init__(self,level):
 		# general setup 
 		super().__init__()
 		self.display_surface = pygame.display.get_surface()
@@ -116,7 +111,8 @@ class YSortCameraGroup(pygame.sprite.Group):
 		self.offset = pygame.math.Vector2()
 
 		# creating the floor
-		self.floor_surf = pygame.image.load('maps/hometown/hometown.png').convert()
+		self.lvl = level
+		self.floor_surf = pygame.image.load('maps/' + self.lvl + '/' + self.lvl + '.png').convert()
 		self.floor_rect = self.floor_surf.get_rect(topleft = (0,0))
 
 	def custom_draw(self,player):
