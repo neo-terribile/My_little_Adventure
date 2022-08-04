@@ -28,8 +28,8 @@
             "scale": 0.5264583333333334,
             "selectedLayer": 5,
             "viewCenter": {
-                "x": 940.2453502176495,
-                "y": 635.3779184804116
+                "x": 958.2904629996042,
+                "y": 637.2774040364068
             }
         },
         "tilemaps/tilesets/blocks.tsx": {
@@ -72,8 +72,8 @@
             "scale": 0.125,
             "selectedLayer": 2,
             "viewCenter": {
-                "x": 1280,
-                "y": 1600
+                "x": 1920,
+                "y": 2556
             }
         },
         "tilesets/blocks.tsx": {
@@ -104,7 +104,7 @@
             "scaleInEditor": 1
         }
     },
-    "last.exportedFilePath": "C:/Users/Neo/source/repos/neo-terribile/My_little_adventure/tiled/tilemaps/world1",
+    "last.exportedFilePath": "C:/Users/Neo/source/repos/neo-terribile/My_little_adventure/maps/hometown",
     "last.externalTilesetPath": "C:/Users/Neo/source/repos/neo-terribile/Adventure/tiled/tilesets",
     "last.imagePath": "C:/Users/Neo/source/repos/neo-terribile/Adventure/aseprite/png",
     "map.height": 80,

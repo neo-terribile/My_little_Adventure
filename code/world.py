@@ -14,8 +14,7 @@ class World:
 	def __init__(self):
 		# get the display surface 
 		self.display_surface = pygame.display.get_surface()
-		self.lvl = 'world1'
-
+		self.lvl = 'hometown'
 		# sprite group setup
 		self.visible_sprites = YSortCameraGroup(self.lvl)
 		self.obstacle_sprites = pygame.sprite.Group()
@@ -26,19 +25,22 @@ class World:
 		# user interface 
 		self.ui = UI()
 
+	# change lvl
+	def change_lvl(self, lvl):
+		self.lvl = lvl
+		self.create_map()
+
 
 	# create map
 	def create_map(self):	
 		layouts = {
-			'boundary': import_csv_layout('maps/' + self.lvl + '/' + self.lvl + '_blocks.csv'),
+			'block': import_csv_layout('maps/' + self.lvl + '/' + self.lvl + '_blocks.csv'),
 			'grass': import_csv_layout('maps/' + self.lvl + '/' + self.lvl + '_grass.csv'),
 			'object': import_csv_layout('maps/' + self.lvl + '/' + self.lvl + '_objects.csv'),
-			'entities': import_csv_layout('maps/' + self.lvl + '/' + self.lvl + '_entities.csv')
-		}
+			'entities': import_csv_layout('maps/' + self.lvl + '/' + self.lvl + '_entities.csv')}
 		graphics = {
 			'grass': import_folder('graphics/grass'),
-			'objects': import_folder('graphics/objects')
-		}
+			'objects': import_folder('graphics/objects')}
 
 		for style,layout in layouts.items():
 			for row_index,row in enumerate(layout):
@@ -46,7 +48,8 @@ class World:
 					if col != '-1':
 						x = col_index * TILESIZE
 						y = row_index * TILESIZE
-						if style == 'boundary':
+						if style == 'block':
+							if col =
 							Tile((x,y),[self.obstacle_sprites],'invisible')
 						if style == 'grass':
 							random_grass_image = choice(graphics['grass'])
@@ -60,6 +63,7 @@ class World:
 									(x,y),
 									[self.visible_sprites],
 									self.obstacle_sprites,
+									self.lvl,
 									self.create_attack,
 									self.remove_attack,
 									self.create_magic)

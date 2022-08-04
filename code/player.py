@@ -6,9 +6,8 @@ from debug import debug
 
 
 class Player(Entity):
-	def __init__(self,pos,groups,obstacle_sprites,create_attack,destroy_attack,create_magic):
+	def __init__(self,pos,groups,obstacle_sprites,lvl,create_attack,destroy_attack,create_magic):
 		super().__init__(groups)
-		self.image = pygame.image.load('graphics/test/player.png').convert_alpha()
 		self.image = get_sprite(0,TILESIZE * 9,TILESIZE,TILESIZE,ss_player)
 		self.rect = self.image.get_rect(topleft = pos)
 		self.hitbox = self.rect.inflate(0,-20)
@@ -16,6 +15,7 @@ class Player(Entity):
 		# graphics setup
 		self.import_player_assets()
 		self.status = 'down'
+		self.lvl = lvl
 
 		# movement 
 		self.attacking = False

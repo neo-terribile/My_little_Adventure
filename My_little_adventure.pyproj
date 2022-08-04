@@ -85,9 +85,7 @@
     <Folder Include="graphics\particles\smoke_orange\" />
     <Folder Include="graphics\particles\sparkle\" />
     <Folder Include="graphics\particles\thunder\" />
-    <Folder Include="graphics\player\" />
     <Folder Include="graphics\test\" />
-    <Folder Include="graphics\tilemap\" />
     <Folder Include="graphics\weapons\" />
     <Folder Include="graphics\weapons\axe\" />
     <Folder Include="graphics\weapons\lance\" />
@@ -357,15 +355,8 @@
     <Content Include="graphics\particles\thunder\5.png" />
     <Content Include="graphics\particles\thunder\6.png" />
     <Content Include="graphics\particles\thunder\7.png" />
-    <Content Include="graphics\player\player.png" />
-    <Content Include="graphics\player\ui.png" />
     <Content Include="graphics\test\player.png" />
     <Content Include="graphics\test\rock.png" />
-    <Content Include="graphics\tilemap\details.png" />
-    <Content Include="graphics\tilemap\Floor.png" />
-    <Content Include="graphics\tilemap\ground.png" />
-    <Content Include="graphics\tilemap\ground1.png" />
-    <Content Include="graphics\tilemap\hometown.png" />
     <Content Include="graphics\weapons\axe\down.png" />
     <Content Include="graphics\weapons\axe\full.png" />
     <Content Include="graphics\weapons\axe\left.png" />
