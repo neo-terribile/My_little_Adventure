@@ -96,9 +96,11 @@
     <Folder Include="graphics\weapons\sword\" />
     <Folder Include="maps\" />
     <Folder Include="maps\hometown\" />
+    <Folder Include="maps\world1\" />
     <Folder Include="tiled\" />
     <Folder Include="tiled\tilemaps\" />
     <Folder Include="tiled\tilemaps\hometown\" />
+    <Folder Include="tiled\tilemaps\world1\" />
     <Folder Include="tiled\tilesets\" />
   </ItemGroup>
   <ItemGroup>
@@ -396,10 +398,25 @@
     <Content Include="maps\hometown\hometown_grass.csv" />
     <Content Include="maps\hometown\hometown_ground.csv" />
     <Content Include="maps\hometown\hometown_objects.csv" />
+    <Content Include="maps\world1\welt1.png" />
+    <Content Include="maps\world1\welt1_blocks.csv" />
+    <Content Include="maps\world1\welt1_details.csv" />
+    <Content Include="maps\world1\welt1_entities.csv" />
+    <Content Include="maps\world1\welt1_grass.csv" />
+    <Content Include="maps\world1\welt1_groud.csv" />
+    <Content Include="maps\world1\welt1_objects.csv" />
     <Content Include="tiled\adventure.tiled-project" />
     <Content Include="tiled\adventure.tiled-session" />
     <Content Include="tiled\tilemaps\hometown\hometown.png" />
     <Content Include="tiled\tilemaps\hometown\hometown.tmx" />
+    <Content Include="tiled\tilemaps\world1\welt1.png" />
+    <Content Include="tiled\tilemaps\world1\welt1.tmx" />
+    <Content Include="tiled\tilemaps\world1\welt1_block.csv" />
+    <Content Include="tiled\tilemaps\world1\welt1_details.csv" />
+    <Content Include="tiled\tilemaps\world1\welt1_entities.csv" />
+    <Content Include="tiled\tilemaps\world1\welt1_grass.csv" />
+    <Content Include="tiled\tilemaps\world1\welt1_groud.csv" />
+    <Content Include="tiled\tilemaps\world1\welt1_objects.csv" />
     <Content Include="tiled\tilesets\blocks.tsx" />
     <Content Include="tiled\tilesets\details.tsx" />
     <Content Include="tiled\tilesets\entities.tsx" />

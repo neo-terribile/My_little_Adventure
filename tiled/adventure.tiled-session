@@ -5,10 +5,11 @@
     },
     "activeFile": "tilemaps/hometown/hometown.tmx",
     "expandedProjectPaths": [
-        "tilemaps",
         "tilesets",
-        "tilemaps/hometown",
-        "."
+        "tilemaps/world1",
+        "tilemaps",
+        ".",
+        "tilemaps/hometown"
     ],
     "fileStates": {
         "blocks.tsx": {
@@ -25,10 +26,10 @@
         },
         "tilemaps/hometown/hometown.tmx": {
             "scale": 0.5264583333333334,
-            "selectedLayer": 0,
+            "selectedLayer": 5,
             "viewCenter": {
-                "x": 957.3407202216066,
-                "y": 393.19351009101706
+                "x": 940.2453502176495,
+                "y": 635.3779184804116
             }
         },
         "tilemaps/tilesets/blocks.tsx": {
@@ -50,6 +51,22 @@
         },
         "tilemaps/tilesets/objects.tsx": {
             "scaleInDock": 1
+        },
+        "tilemaps/welt1.tmx": {
+            "scale": 0.16624999999999998,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 1924.8120300751882,
+                "y": 2562.406015037594
+            }
+        },
+        "tilemaps/world1/welt1.tmx": {
+            "scale": 0.125,
+            "selectedLayer": 4,
+            "viewCenter": {
+                "x": 1920,
+                "y": 2556
+            }
         },
         "tilesets/blocks.tsx": {
             "dynamicWrapping": false,
@@ -79,19 +96,24 @@
             "scaleInEditor": 1
         }
     },
-    "last.exportedFilePath": "C:/Users/Neo/source/repos/neo-terribile/Adventure/tiled/tilemaps/hometown",
+    "last.exportedFilePath": "C:/Users/Neo/source/repos/neo-terribile/My_little_adventure/tiled/tilemaps/world1",
     "last.externalTilesetPath": "C:/Users/Neo/source/repos/neo-terribile/Adventure/tiled/tilesets",
     "last.imagePath": "C:/Users/Neo/source/repos/neo-terribile/Adventure/aseprite/png",
+    "map.height": 80,
     "map.lastUsedExportFilter": "CSV-Dateien (*.csv)",
     "map.lastUsedFormat": "tmx",
     "map.tileHeight": 64,
     "map.tileWidth": 64,
+    "map.width": 60,
     "openFiles": [
-        "tilemaps/hometown/hometown.tmx"
+        "tilemaps/hometown/hometown.tmx",
+        "tilemaps/world1/welt1.tmx"
     ],
     "project": "adventure.tiled-project",
     "recentFiles": [
+        "tilemaps/world1/welt1.tmx",
         "tilemaps/hometown/hometown.tmx",
+        "tilemaps/welt1.tmx",
         "tilesets/entities.tsx",
         "tilesets/details.tsx",
         "tilesets/blocks.tsx",

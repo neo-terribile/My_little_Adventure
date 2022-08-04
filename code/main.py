@@ -115,7 +115,7 @@ class Game:
 
 	# title screen
 	def title(self):
-		maxy = HEIGTH * 2
+		maxy = HEIGTH
 		i = 0
 		while True:
 			for event in pygame.event.get():
@@ -127,16 +127,16 @@ class Game:
 					game.menu()
 
 			image_path = pygame.image.load('graphics/img/titlescreen.png')
-			titlescreen = pygame.transform.scale(image_path, (WIDTH,HEIGTH*3))
+			titlescreen = pygame.transform.scale(image_path, (WIDTH,HEIGTH*2))
 
 			self.screen.fill('black')
 			self.screen.blit(titlescreen,(0,-i))
 
 			if i == maxy:
 				self.screen.blit(titlescreen,(0,maxy))
-				i = maxy - 10
+				i = maxy - 5
 				
-			i += 10
+			i += 5
 
 
 			title = self.font.render('Press any key to continue', True, black)

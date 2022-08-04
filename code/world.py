@@ -18,18 +18,26 @@ class World:
 		self.obstacle_sprites = pygame.sprite.Group()
 		# attack sprites
 		self.current_attack = None
+		# map
+		self.map = None
 		# sprite setup
+		self.map_selection()
 		self.create_map()
 		# user interface 
 		self.ui = UI()
 
+	#map selecton
+	def map_selection(self):
+		if self.map == None:
+			self.map = 'world1'
+
 	# create map
-	def create_map(self):
+	def create_map(self):	
 		layouts = {
-			'boundary': import_csv_layout('maps/hometown/hometown_blocks.csv'),
-			'grass': import_csv_layout('maps/hometown/hometown_grass.csv'),
-			'object': import_csv_layout('maps/hometown/hometown_objects.csv'),
-			'entities': import_csv_layout('maps/hometown/hometown_entities.csv')
+			'boundary': import_csv_layout('maps/' + self.map + '/' + self.map + '_blocks.csv'),
+			'grass': import_csv_layout('maps/' + self.map + '/' + self.map + '_grass.csv'),
+			'object': import_csv_layout('maps/' + self.map + '/' + self.map + '_objects.csv'),
+			'entities': import_csv_layout('maps/' + self.map + '/' + self.map + '_entities.csv')
 		}
 		graphics = {
 			'grass': import_folder('graphics/grass'),
