@@ -3,13 +3,13 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "tilemaps/world1/world1.tmx",
+    "activeFile": "tilemaps/hometown/hometown.tmx",
     "expandedProjectPaths": [
-        "tilesets",
-        "tilemaps/world1",
         ".",
-        "tilemaps",
-        "tilemaps/hometown"
+        "tilemaps/hometown",
+        "tilemaps/world1",
+        "tilesets",
+        "tilemaps"
     ],
     "fileStates": {
         "blocks.tsx": {
@@ -25,11 +25,11 @@
             }
         },
         "tilemaps/hometown/hometown.tmx": {
-            "scale": 0.5264583333333334,
-            "selectedLayer": 5,
+            "scale": 0.75,
+            "selectedLayer": 2,
             "viewCenter": {
-                "x": 958.2904629996042,
-                "y": 637.2774040364068
+                "x": 822.6666666666666,
+                "y": 1020
             }
         },
         "tilemaps/tilesets/blocks.tsx": {
@@ -72,8 +72,8 @@
             "scale": 0.125,
             "selectedLayer": 2,
             "viewCenter": {
-                "x": 1920,
-                "y": 2556
+                "x": 1280,
+                "y": 1600
             }
         },
         "tilesets/blocks.tsx": {
@@ -104,7 +104,7 @@
             "scaleInEditor": 1
         }
     },
-    "last.exportedFilePath": "C:/Users/Neo/source/repos/neo-terribile/My_little_adventure/maps/hometown",
+    "last.exportedFilePath": "C:/Users/Neo/source/repos/neo-terribile/My_little_adventure/tiled/tilemaps/hometown",
     "last.externalTilesetPath": "C:/Users/Neo/source/repos/neo-terribile/Adventure/tiled/tilesets",
     "last.imagePath": "C:/Users/Neo/source/repos/neo-terribile/Adventure/aseprite/png",
     "map.height": 80,
@@ -115,20 +115,20 @@
     "map.width": 60,
     "openFiles": [
         "tilemaps/hometown/hometown.tmx",
-        "tilemaps/world1/world1.tmx"
+        "tilesets/blocks.tsx"
     ],
     "project": "adventure.tiled-project",
     "recentFiles": [
+        "tilesets/blocks.tsx",
         "tilemaps/hometown/hometown.tmx",
+        "tilesets/ground.tsx",
+        "tilesets/details.tsx",
+        "tilesets/entities.tsx",
         "tilemaps/world1/world1.tmx",
         "tilemaps/world1/welt1.tmx",
         "tilemaps/welt1.tmx",
-        "tilesets/entities.tsx",
-        "tilesets/details.tsx",
-        "tilesets/blocks.tsx",
         "tilesets/objects.tsx",
         "tilesets/grass.tsx",
-        "tilesets/ground.tsx",
         "blocks.tsx"
     ],
     "tileset.lastUsedFormat": "tsx",

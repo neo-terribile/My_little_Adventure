@@ -49,8 +49,11 @@ class World:
 						x = col_index * TILESIZE
 						y = row_index * TILESIZE
 						if style == 'block':
-							if col =
-							Tile((x,y),[self.obstacle_sprites],'invisible')
+							if col == 0:
+								Tile((x,y),[self.obstacle_sprites],'invisible')
+							elif col == 1:
+								Tile((x,y),[self.obstacle_sprites],'invisible')
+
 						if style == 'grass':
 							random_grass_image = choice(graphics['grass'])
 							Tile((x,y),[self.visible_sprites,self.obstacle_sprites],'grass',random_grass_image)
