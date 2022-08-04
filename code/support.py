@@ -1,7 +1,7 @@
-from csv import reader
-from os import walk
 import pygame
 from settings import *
+from csv import reader
+from os import walk
 
 # import csv
 def import_csv_layout(path):
@@ -35,9 +35,7 @@ def import_animations(sheet,width,height,frames,j):
 			surface_list.append(sprite)
 			i +=1
 	return surface_list
-
 	
-
 # get sprite
 def get_sprite(x,y,width,height,path):
 	sheet = pygame.image.load(path).convert_alpha() 
@@ -85,3 +83,54 @@ def mouse():
 	mouse.append(mouse_pressed)
 
 	return mouse
+
+# tile class
+class Tile(pygame.sprite.Sprite):
+	def __init__(self,pos,groups,sprite_type,surface = pygame.Surface((TILESIZE,TILESIZE))):
+		super().__init__(groups)
+		self.sprite_type = sprite_type
+		self.image = surface
+		if sprite_type == 'object':
+			self.rect = self.image.get_rect(topleft = (pos[0],pos[1] - TILESIZE))
+		else:
+			self.rect = self.image.get_rect(topleft = pos)
+		self.hitbox = self.rect.inflate(0,-10)
+
+		if sprite_type == 'world1':
+			self.lvl = 'world1'
+
+# entity class
+class Entity(pygame.sprite.Sprite):
+	def __init__(self,groups):
+		super().__init__(groups)
+		self.frame_index = 0
+		self.animation_speed = 0.15
+		self.direction = pygame.math.Vector2()
+	# moves the sprite
+	def move(self,speed):
+		if self.direction.magnitude() != 0:
+			self.direction = self.direction.normalize()
+
+		self.hitbox.x += self.direction.x * speed
+		self.collision('horizontal')
+		self.hitbox.y += self.direction.y * speed
+		self.collision('vertical')
+		self.rect.center = self.hitbox.center
+	
+	# detects collisions
+	def collision(self,direction):
+		if direction == 'horizontal':
+			for sprite in self.obstacle_sprites:
+				if sprite.hitbox.colliderect(self.hitbox):
+					if self.direction.x > 0: # moving right
+						self.hitbox.right = sprite.hitbox.left
+					if self.direction.x < 0: # moving left
+						self.hitbox.left = sprite.hitbox.right
+
+		if direction == 'vertical':
+			for sprite in self.obstacle_sprites:
+				if sprite.hitbox.colliderect(self.hitbox):
+					if self.direction.y > 0: # moving down
+						self.hitbox.bottom = sprite.hitbox.top
+					if self.direction.y < 0: # moving up
+						self.hitbox.top = sprite.hitbox.bottom

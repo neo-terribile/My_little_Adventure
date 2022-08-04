@@ -23,13 +23,12 @@
   <ItemGroup>
     <Compile Include="code\debug.py" />
     <Compile Include="code\enemy.py" />
-    <Compile Include="code\entity.py" />
+    <Compile Include="code\npc.py" />
     <Compile Include="code\world.py" />
     <Compile Include="code\main.py" />
     <Compile Include="code\player.py" />
     <Compile Include="code\settings.py" />
     <Compile Include="code\support.py" />
-    <Compile Include="code\tile.py" />
     <Compile Include="code\ui.py" />
     <Compile Include="code\weapon.py" />
   </ItemGroup>

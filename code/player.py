@@ -1,7 +1,6 @@
 import pygame 
 from settings import *
 from support import *
-from entity import Entity
 from debug import debug
 
 
@@ -48,6 +47,7 @@ class Player(Entity):
 
 		# loot
 		self.gold = 0
+
 
 	# import player assets
 	def import_player_assets(self):

@@ -1,6 +1,5 @@
 import pygame 
 from settings import *
-from tile import Tile
 from player import Player
 from support import *
 from random import choice
@@ -30,7 +29,6 @@ class World:
 		self.lvl = lvl
 		self.create_map()
 
-
 	# create map
 	def create_map(self):	
 		layouts = {
@@ -49,11 +47,10 @@ class World:
 						x = col_index * TILESIZE
 						y = row_index * TILESIZE
 						if style == 'block':
-							if col == 0:
+							if col == '0':
 								Tile((x,y),[self.obstacle_sprites],'invisible')
-							elif col == 1:
-								Tile((x,y),[self.obstacle_sprites],'invisible')
-
+							elif col == '1':
+								Tile((x,y),[self.visible_sprites],'world1')
 						if style == 'grass':
 							random_grass_image = choice(graphics['grass'])
 							Tile((x,y),[self.visible_sprites,self.obstacle_sprites],'grass',random_grass_image)
