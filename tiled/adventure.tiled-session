@@ -65,7 +65,15 @@
             "selectedLayer": 4,
             "viewCenter": {
                 "x": 1920,
-                "y": 2556
+                "y": 2560
+            }
+        },
+        "tilemaps/world1/world1.tmx": {
+            "scale": 0.125,
+            "selectedLayer": 2,
+            "viewCenter": {
+                "x": 1280,
+                "y": 1600
             }
         },
         "tilesets/blocks.tsx": {

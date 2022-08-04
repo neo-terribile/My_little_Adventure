@@ -29,7 +29,7 @@ class World:
 	#map selecton
 	def map_selection(self):
 		if self.map == None:
-			self.map = 'world1'
+			self.map = 'welt1'
 
 	# create map
 	def create_map(self):	
