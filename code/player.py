@@ -11,7 +11,7 @@ class Player(Entity):
 		self.image = pygame.image.load('graphics/test/player.png').convert_alpha()
 		self.image = get_sprite(0,TILESIZE * 9,TILESIZE,TILESIZE,ss_player)
 		self.rect = self.image.get_rect(topleft = pos)
-		self.hitbox = self.rect.inflate(0,-26)
+		self.hitbox = self.rect.inflate(0,-20)
 
 		# graphics setup
 		self.import_player_assets()
@@ -41,8 +41,8 @@ class Player(Entity):
 
 		# stats
 		self.stats = {'health': 100,'energy':60,'attack': 10,'magic': 4,'speed': 5}
-		self.health = self.stats['health'] * 0.1
-		self.energy = self.stats['energy'] * 0.9
+		self.health = self.stats['health'] * 0.8
+		self.energy = self.stats['energy'] * 0.2
 		self.speed = self.stats['speed']
 		self.exp = 123
 

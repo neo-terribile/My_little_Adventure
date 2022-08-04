@@ -1,3 +1,4 @@
+from turtle import title
 import pygame, sys
 from settings import *
 from support import *
@@ -100,20 +101,22 @@ class Game:
 				pygame.quit()
 				sys.exit()
 
-			self.screen.blit(menu_background,	(0, 0))
-			self.screen.blit(title,				title_rect)
-			self.screen.blit(new[0],			new[1])
-			self.screen.blit(new[2],			new[3])
-			self.screen.blit(load[0],			load[1])
-			self.screen.blit(load[2],			load[3])
-			self.screen.blit(exit[0],			exit[1])
-			self.screen.blit(exit[2],			exit[3])
+			self.screen.blit(menu_background,(0, 0))
+			self.screen.blit(title, title_rect)
+			self.screen.blit(new[0], new[1])
+			self.screen.blit(new[2], new[3])
+			self.screen.blit(load[0], load[1])
+			self.screen.blit(load[2], load[3])
+			self.screen.blit(exit[0], exit[1])
+			self.screen.blit(exit[2], exit[3])
 
 			self.clock.tick(FPS)
 			pygame.display.update()
 
 	# title screen
 	def title(self):
+		maxy = HEIGTH * 2
+		i = 0
 		while True:
 			for event in pygame.event.get():
 				if event.type == pygame.QUIT:
@@ -123,13 +126,23 @@ class Game:
 				if event.type == pygame.KEYDOWN or pygame.mouse.get_pressed()[0]:
 					game.menu()
 
-			self.screen.fill('white')
+			image_path = pygame.image.load('graphics/img/titlescreen.png')
+			titlescreen = pygame.transform.scale(image_path, (WIDTH,HEIGTH*3))
+
+			self.screen.fill('black')
+			self.screen.blit(titlescreen,(0,-i))
+
+			if i == maxy:
+				self.screen.blit(titlescreen,(0,maxy))
+				i = maxy - 10
+				
+			i += 10
+
 
 			title = self.font.render('Press any key to continue', True, black)
 			title_rect = title.get_rect(x=TILESIZE, y=300)
 
 			self.screen.blit(title, title_rect)
-
 
 			pygame.display.update()
 			self.clock.tick(FPS)
