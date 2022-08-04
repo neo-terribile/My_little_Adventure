@@ -28,8 +28,8 @@
             "scale": 0.75,
             "selectedLayer": 2,
             "viewCenter": {
-                "x": 822.6666666666666,
-                "y": 1020
+                "x": 946.6666666666666,
+                "y": 638
             }
         },
         "tilemaps/tilesets/blocks.tsx": {

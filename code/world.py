@@ -62,14 +62,20 @@ class World:
 							Tile((x,y),[self.visible_sprites,self.obstacle_sprites],'object',surf)
 						if style == 'entities':
 							if col == '0':
-								self.player = Player(
-									(x,y),
-									[self.visible_sprites,
-									self.player_sprite],
-									self.obstacle_sprites,
-									self.create_attack,
-									self.remove_attack,
-									self.create_magic)
+								if len(self.player_sprite) == 0:
+									self.player = Player(
+										(x,y),
+										[self.visible_sprites,
+										self.player_sprite],
+										self.obstacle_sprites,
+										self.create_attack,
+										self.remove_attack,
+										self.create_magic)
+								else:
+									self.player.hitbox.x = x
+									self.player.hitbox.y = y	
+
+
 							else:
 								if col == '1': monster_name = 'bamboo'
 								elif col == '2': monster_name = 'spirit'
@@ -104,9 +110,10 @@ class World:
 
 	# change map
 	def change_map(self,level):
-		print(level)
 		self.lvl = level
-		for sprite in self.visible_sprites:
+		for sprite in self.obstacle_sprites:
+			sprite.kill()
+		for sprite in self.trigger_sprites:
 			sprite.kill()
 
 		self.create_map()
