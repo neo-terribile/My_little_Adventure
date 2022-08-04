@@ -92,12 +92,13 @@ class Tile(pygame.sprite.Sprite):
 		self.image = surface
 		if sprite_type == 'object':
 			self.rect = self.image.get_rect(topleft = (pos[0],pos[1] - TILESIZE))
+			self.hitbox = self.rect.inflate(0,-10)
+		elif sprite_type == 'world1':
+			self.rect = self.image.get_rect(topleft = pos)
+			self.hitbox = self.rect	
 		else:
 			self.rect = self.image.get_rect(topleft = pos)
-		self.hitbox = self.rect.inflate(0,-10)
-
-		if sprite_type == 'world1':
-			self.lvl = 'world1'
+			self.hitbox = self.rect.inflate(0,-10)
 
 # entity class
 class Entity(pygame.sprite.Sprite):
@@ -134,3 +135,4 @@ class Entity(pygame.sprite.Sprite):
 						self.hitbox.bottom = sprite.hitbox.top
 					if self.direction.y < 0: # moving up
 						self.hitbox.top = sprite.hitbox.bottom
+

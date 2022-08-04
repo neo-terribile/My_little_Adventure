@@ -1,4 +1,3 @@
-from turtle import title
 import pygame, sys
 from settings import *
 from support import *
