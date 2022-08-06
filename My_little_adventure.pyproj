@@ -101,7 +101,6 @@
     <Folder Include="tiled\tilesets\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="aseprite\block.aseprite" />
     <Content Include="aseprite\details.aseprite" />
     <Content Include="aseprite\entities.aseprite" />
     <Content Include="aseprite\grass.aseprite" />
