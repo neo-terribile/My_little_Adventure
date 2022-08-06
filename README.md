@@ -3,6 +3,8 @@
 For map transition walk between the flowers.
 
 2022-08-06 to do:
+  - numpy integration for lists
+  - Create Dialog Class
   - 8 directional movement
   - Options Funktions for resolution and audio
   - Rework Enemy Class no list each enemy gets it's own class and spritesheet
