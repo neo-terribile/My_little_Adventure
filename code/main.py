@@ -187,7 +187,6 @@ class Game:
 				
 			i += 5
 
-
 			title = self.font.render('Press any key to continue', True, black)
 			title_rect = title.get_rect(x=TILESIZE, y=300)
 
