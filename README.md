@@ -1,6 +1,6 @@
 # My little adventure
 
-For Map transition walk between the flowers.
+For map transition walk between the flowers.
 
 2022-08-06 to do:
   - 8 directional movement
