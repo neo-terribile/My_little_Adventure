@@ -1,5 +1,7 @@
 # My little adventure
 
+For Map transition walk between the flowers.
+
 2022-08-06 to do:
   - 8 directional movement
   - Options Funktions for resolution and audio
