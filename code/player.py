@@ -62,40 +62,6 @@ class Player(Entity):
 			self.animations[animation] = import_animations(sheet,TILESIZE,TILESIZE,3,j)
 			j += 1
 
-		
-		#for animation in self.animations.keys():
-		#	if animation == 'north'					: j = 0
-		#	if animation == 'south'					: j = 1
-		#	if animation == 'west'					: j = 2
-		#	if animation == 'east'					: j = 3
-		#
-		#	if animation == 'northeast'				: j = 4
-		#	if animation == 'northwest'				: j = 5
-		#	if animation == 'southeast'				: j = 6
-		#	if animation == 'southwest'				: j = 7
-		#
-		#	if animation == 'north_attack'			: j = 8
-		#	if animation == 'south_attack'			: j = 9
-		#	if animation == 'west_attack'			: j = 10
-		#	if animation == 'east_attack'			: j = 11
-		#
-		#	if animation == 'northeast_attack'		: j = 12
-		#	if animation == 'northwest_attack'		: j = 13
-		#	if animation == 'southeast_attack'		: j = 14
-		#	if animation == 'southwest_attack'		: j = 15
-		#
-		#	if animation == 'north_idle'			: j = 16
-		#	if animation == 'south_idle'			: j = 17
-		#	if animation == 'west_idle'				: j = 18
-		#	if animation == 'east_idle'				: j = 19
-		#		
-		#	if animation == 'northeast_idle'		: j = 20
-		#	if animation == 'northwest_idle'		: j = 21
-		#	if animation == 'southeast_idle'		: j = 22
-		#	if animation == 'southwest'				: j = 23
-		#
-		#	self.animations[animation] = import_animations(sheet,TILESIZE,TILESIZE,3,j)
-
 	# player input
 	def input(self):
 		if not self.attacking:
