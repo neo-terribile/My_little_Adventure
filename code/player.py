@@ -53,10 +53,10 @@ class Player(Entity):
 		sheet = pygame.image.load(ss_player).convert_alpha()
 		self.animations =	{'north': [],'south': [],'west': [],'east': [],
 							'northeast': [],'northwest': [],'southeast': [], 'southwest': [],
-							'north_idle':[],'south_idle':[],'west_idle':[],'east_idle':[],
-							'northeast_idle':[],'northwest_idle':[],'wsoutheast_idle':[],'esouthwest_idle':[],
 							'north_attack':[],'south_attack':[],'west_attack':[],'east_attack':[],
-							'northeast_attack':[],'northwest_attack':[],'southeast_attack':[],'southwest_attack':[]}
+							'northeast_attack':[],'northwest_attack':[],'southeast_attack':[],'southwest_attack':[],
+							'north_idle':[],'south_idle':[],'west_idle':[],'east_idle':[],
+							'northeast_idle':[],'northwest_idle':[],'southeast_idle':[],'southwest_idle':[]}
 		j = 0
 		for animation in self.animations.keys():
 			self.animations[animation] = import_animations(sheet,TILESIZE,TILESIZE,3,j)
