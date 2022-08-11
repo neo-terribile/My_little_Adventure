@@ -13,7 +13,7 @@ class Player(Entity):
 
 		# graphics setup
 		self.import_player_assets()
-		self.status = 'down'
+		self.status = 'south'
 
 		# movement 
 		self.attacking = False
@@ -51,23 +51,45 @@ class Player(Entity):
 	# import player assets
 	def import_player_assets(self):
 		sheet = pygame.image.load(ss_player).convert_alpha()
-		self.animations =	{'up': [],'down': [],'left': [],'right': [],
-							'up_idle':[],'down_idle':[],'left_idle':[],'right_idle':[],
-							'up_attack':[],'down_attack':[],'left_attack':[],'right_attack':[]}	
+		self.animations =	{'north': [],'south': [],'west': [],'east': [],
+							'northeast': [],'northwest': [],'southeast': [], 'southwest': [],
+							'north_idle':[],'south_idle':[],'west_idle':[],'east_idle':[],
+							'northeast_idle':[],'northwest_idle':[],'wsoutheast_idle':[],'esouthwest_idle':[],
+							'north_attack':[],'south_attack':[],'west_attack':[],'east_attack':[],
+							'northeast_attack':[],'northwest_attack':[],'southeast_attack':[],'southwest_attack':[]}	
 		
 		for animation in self.animations.keys():
-			if animation == 'up'			: j = 0
-			if animation == 'down'			: j = 1
-			if animation == 'left'			: j = 2
-			if animation == 'right'			: j = 3
-			if animation == 'up_attack'		: j = 4
-			if animation == 'down_attack'	: j = 5
-			if animation == 'left_attack'	: j = 6
-			if animation == 'right_attack'	: j = 7
-			if animation == 'up_idle'		: j = 8
-			if animation == 'down_idle'		: j = 9
-			if animation == 'left_idle'		: j = 10
-			if animation == 'right_idle'	: j = 11
+			if animation == 'north'					: j = 0
+			if animation == 'south'					: j = 1
+			if animation == 'west'					: j = 2
+			if animation == 'east'					: j = 3
+
+			if animation == 'northeast'				: j = 4
+			if animation == 'northwest'				: j = 5
+			if animation == 'southeast'				: j = 6
+			if animation == 'southwest'				: j = 7
+
+			if animation == 'north_attack'			: j = 8
+			if animation == 'south_attack'			: j = 9
+			if animation == 'west_attack'			: j = 10
+			if animation == 'east_attack'			: j = 11
+
+			if animation == 'northeast_attack'		: j = 12
+			if animation == 'northwest_attack'		: j = 13
+			if animation == 'southeast_attack'		: j = 14
+			if animation == 'southwest_attack'		: j = 15
+
+			if animation == 'north_idle'			: j = 16
+			if animation == 'south_idle'			: j = 17
+			if animation == 'west_idle'				: j = 18
+			if animation == 'east_idle'				: j = 19
+				
+			if animation == 'northeast_idle'		: j = 20
+			if animation == 'northwest_idle'		: j = 21
+			if animation == 'southeast_idle_idle'	: j = 22
+			if animation == 'southwest'				: j = 23
+
+
 			self.animations[animation] = import_animations(sheet,TILESIZE,TILESIZE,3,j)
 
 	# player input
@@ -77,20 +99,82 @@ class Player(Entity):
 
 			# movement input
 			if keys[pygame.K_UP]:
-				self.direction.y = -1
-				self.status = 'up'
+				if keys[pygame.K_RIGHT]:
+					self.direction.x = 1
+					self.direction.y = -1
+					self.status = 'north'
+				elif keys[pygame.K_LEFT]:
+					self.direction.x = -1
+					self.direction.y = -1
+					self.status = 'north'
+				else:
+					self.direction.x = 0
+					self.direction.y = -1
+					self.status = 'north'
+
 			elif keys[pygame.K_DOWN]:
-				self.direction.y = 1
-				self.status = 'down'
-			else:
-				self.direction.y = 0
+				if keys[pygame.K_RIGHT]:
+					self.direction.x = 1
+					self.direction.y = 1
+					self.status = 'south'
+				elif keys[pygame.K_LEFT]:
+					self.direction.x = -1
+					self.direction.y = 1
+					self.status = 'south'
+				else:
+					self.direction.x = 0
+					self.direction.y = 1
+					self.status = 'south'
+
+			else:	self.direction.y = 0
 
 			if keys[pygame.K_RIGHT]:
+				if keys[pygame.K_UP]:
+					self.direction.x = 1
+					self.direction.y = -1
+					self.status = 'north'
+				elif keys[pygame.K_DOWN]:
+					self.direction.x = 1
+					self.direction.y = 1
+					self.status = 'south'
+				else:
+					self.direction.x = 1
+					self.direction.y = 1
+					self.status = 'east'
+
+			elif keys[pygame.K_LEFT]:
+				if keys[pygame.K_UP]:
+					self.direction.x = -1
+					self.direction.y = -1
+					self.status = 'north'
+				elif keys[pygame.K_DOWN]:
+					self.direction.x = -1
+					self.direction.y = 1
+					self.status = 'south'
+				else:
+					self.direction.x = -1
+					self.direction.y = 1
+					self.status = 'west'
+
+			else:
+				self.direction.x = 0
+
+
+			if keys[pygame.K_UP]:
+				self.direction.y = -1
+				self.status = 'north'
+			elif keys[pygame.K_DOWN]:
+				self.direction.y = 1
+				self.status = 'south'
+			else:
+				self.direction.y = 0
+			
+			if keys[pygame.K_RIGHT]:
 				self.direction.x = 1
-				self.status = 'right'
+				self.status = 'east'
 			elif keys[pygame.K_LEFT]:
 				self.direction.x = -1
-				self.status = 'left'
+				self.status = 'west'
 			else:
 				self.direction.x = 0
 
