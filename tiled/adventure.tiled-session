@@ -5,11 +5,11 @@
     },
     "activeFile": "tilemaps/hometown/hometown.tmx",
     "expandedProjectPaths": [
-        ".",
         "tilemaps/hometown",
-        "tilemaps/world1",
         "tilesets",
-        "tilemaps"
+        "tilemaps",
+        "tilemaps/world1",
+        "."
     ],
     "fileStates": {
         "blocks.tsx": {
@@ -26,10 +26,10 @@
         },
         "tilemaps/hometown/hometown.tmx": {
             "scale": 0.75,
-            "selectedLayer": 2,
+            "selectedLayer": 1,
             "viewCenter": {
-                "x": 946.6666666666666,
-                "y": 638
+                "x": 849.3333333333333,
+                "y": 781.3333333333333
             }
         },
         "tilemaps/tilesets/blocks.tsx": {
@@ -115,16 +115,16 @@
     "map.width": 60,
     "openFiles": [
         "tilemaps/hometown/hometown.tmx",
-        "tilesets/blocks.tsx"
+        "tilesets/ground.tsx"
     ],
     "project": "adventure.tiled-project",
     "recentFiles": [
-        "tilesets/blocks.tsx",
-        "tilemaps/hometown/hometown.tmx",
         "tilesets/ground.tsx",
+        "tilemaps/hometown/hometown.tmx",
+        "tilemaps/world1/world1.tmx",
+        "tilesets/blocks.tsx",
         "tilesets/details.tsx",
         "tilesets/entities.tsx",
-        "tilemaps/world1/world1.tmx",
         "tilemaps/world1/welt1.tmx",
         "tilemaps/welt1.tmx",
         "tilesets/objects.tsx",

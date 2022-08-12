@@ -9,7 +9,7 @@ class Player(Entity):
 		super().__init__(groups)
 		self.image = get_sprite(0,TILESIZE * 9,TILESIZE,TILESIZE,ss_player)
 		self.rect = self.image.get_rect(topleft = pos)
-		self.hitbox = self.rect.inflate(0,-20)
+		self.hitbox = self.rect.inflate(0,-10)
 
 		# graphics setup
 		self.import_player_assets()

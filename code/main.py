@@ -13,7 +13,7 @@ class Game:
 		pygame.display.set_caption('Zelda')
 		self.clock = pygame.time.Clock()
 		self.font = pygame.font.Font('graphics/font/Pixel.ttf', 32)
-		self.playing = False
+		self.playing = True
 		self.level = World()
 
 	# play the game
@@ -197,4 +197,4 @@ class Game:
 
 if __name__ == '__main__':
 	game = Game()
-	game.title()
+	game.play()
