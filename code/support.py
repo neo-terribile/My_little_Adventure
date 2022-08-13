@@ -117,6 +117,7 @@ class Entity(pygame.sprite.Sprite):
 		self.hitbox.y += self.direction.y * speed
 		self.collision('vertical')
 		self.rect.center = self.hitbox.center
+		self.rect.y = self.hitbox.y - 90
 	
 	# detects collisions
 	def collision(self,direction):

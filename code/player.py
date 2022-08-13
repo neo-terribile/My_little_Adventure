@@ -10,8 +10,9 @@ class Player(Entity):
 		self.image = get_sprite(0,TILESIZE * 2,TILESIZE,TILESIZE*2,ss_player)
 		self.rect = self.image.get_rect(topleft = pos)
 		self.mask = pygame.mask.from_surface(self.image)
-		self.hitbox = self.rect.inflate(0,-10)
-
+		self.hitbox = self.rect.inflate(-24,-96)
+	
+				
 		# graphics setup
 		self.import_player_assets()
 		self.status = 'south'
@@ -213,9 +214,11 @@ class Player(Entity):
 		# set the image
 		self.image = animation[int(self.frame_index)]
 		self.rect = self.image.get_rect(center = self.hitbox.center)
+		
 	
 	# update player
 	def update(self):
+		debug(self.mask)
 		self.input()
 		self.cooldowns()
 		self.get_status()
