@@ -3,13 +3,13 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "tilemaps/hometown/hometown.tmx",
+    "activeFile": "tilesets/ground.tsx",
     "expandedProjectPaths": [
-        "tilesets",
         ".",
         "tilemaps/hometown",
-        "tilemaps/world1",
-        "tilemaps"
+        "tilesets",
+        "tilemaps",
+        "tilemaps/world1"
     ],
     "fileStates": {
         "blocks.tsx": {
@@ -25,11 +25,11 @@
             }
         },
         "tilemaps/hometown/hometown.tmx": {
-            "scale": 0.33,
-            "selectedLayer": 2,
+            "scale": 0.5,
+            "selectedLayer": 0,
             "viewCenter": {
-                "x": 886.3636363636363,
-                "y": 427.27272727272725
+                "x": 975,
+                "y": 674
             }
         },
         "tilemaps/tilesets/blocks.tsx": {
@@ -96,7 +96,7 @@
             "scaleInEditor": 1
         },
         "tilesets/ground.tsx": {
-            "scaleInDock": 0.33,
+            "scaleInDock": 0.75,
             "scaleInEditor": 1
         },
         "tilesets/objects.tsx": {
@@ -119,8 +119,8 @@
     ],
     "project": "adventure.tiled-project",
     "recentFiles": [
-        "tilesets/ground.tsx",
         "tilemaps/hometown/hometown.tmx",
+        "tilesets/ground.tsx",
         "tilemaps/world1/world1.tmx",
         "tilesets/blocks.tsx",
         "tilesets/details.tsx",

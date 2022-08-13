@@ -107,6 +107,7 @@
     <Content Include="aseprite\grass.aseprite" />
     <Content Include="aseprite\ground.aseprite" />
     <Content Include="aseprite\objects.aseprite" />
+    <Content Include="aseprite\player.aseprite" />
     <Content Include="aseprite\png\blocks.png" />
     <Content Include="aseprite\png\details.png" />
     <Content Include="aseprite\png\entities.png" />
@@ -115,6 +116,7 @@
     <Content Include="aseprite\png\objects.png" />
     <Content Include="aseprite\png\ui.png" />
     <Content Include="aseprite\SteamEmu\stats.ini" />
+    <Content Include="aseprite\titlescreen.aseprite" />
     <Content Include="aseprite\ui.aseprite" />
     <Content Include="code\__pycache__\debug.cpython-310.pyc" />
     <Content Include="code\__pycache__\enemy.cpython-310.pyc" />
