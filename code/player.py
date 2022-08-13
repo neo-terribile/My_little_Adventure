@@ -39,21 +39,27 @@ class Player(Entity):
 		self.can_switch_magic = True
 		self.magic_switch_time = None
 
-		# stats
-		self.stats = {'health': 100,'energy':60,'attack': 10,'magic': 4,'speed': 5}
-		self.health = self.stats['health'] * 0.8
-		self.energy = self.stats['energy'] * 0.2
-		self.speed = self.stats['speed']
+		self.strength = 50
+		self.intelligence = 50
+		self.dexterity = 50
+
+		self.max_health = self.strength * 1.5
+		self.max_energy = self.intelligence * 1.1
+		self.health = self.max_health * 0.8
+		if self.health > self.max_health:
+			self.health = self.max_health
+		self.energy = self.max_energy * 0.2
+		if self.energy > self.max_energy:
+			self.energy = self.max_energy
+		self.speed = self.dexterity / 10
 
 		# level
-		self.level_up = False
 		self.level = 1
 		self.exp_next_level = 10
 		self.exp = 0
 
 		# loot
 		self.gold = 0
-
 
 	# import player assets
 	def import_player_assets(self):
@@ -196,8 +202,6 @@ class Player(Entity):
 			self.level += 1
 			self.exp_next_level = self.exp_next_level * self.level
 
-		pass
-
 	# cooldowns
 	def cooldowns(self):
 		current_time = pygame.time.get_ticks()
@@ -236,3 +240,6 @@ class Player(Entity):
 		self.get_status()
 		self.animate()
 		self.move(self.speed)
+		self.level_up()
+
+

@@ -3,14 +3,14 @@ from settings import *
 from support import *
 
 class Enemy(Entity):
-	def __init__(self,monster_name,pos,groups,obstacle_sprites):
+	def __init__(self,monster_name,monster_moves,pos,groups,obstacle_sprites):
 
 		# general setup
 		super().__init__(groups)
 		self.sprite_type = 'enemy'
 
 		# graphics setup
-		self.import_graphics(monster_name)
+		self.import_graphics(monster_name,monster_moves)
 		self.status = 'idle'
 		self.image = self.animations[self.status][self.frame_index]
 
@@ -19,29 +19,20 @@ class Enemy(Entity):
 		self.hitbox = self.rect.inflate(0,-10)
 		self.obstacle_sprites = obstacle_sprites
 
-		# stats
-		self.monster_name = monster_name
-		monster_info = monster_data[self.monster_name]
-		self.health = monster_info['health']
-		self.exp = monster_info['exp']
-		self.speed = monster_info['speed']
-		self.attack_damage = monster_info['damage']
-		self.resistance = monster_info['resistance']
-		self.attack_radius = monster_info['attack_radius']
-		self.notice_radius = monster_info['notice_radius']
-		self.attack_type = monster_info['attack_type']
-
 		# player interaction
 		self.can_attack = True
 		self.attack_time = None
 		self.attack_cooldown = 400
 	
 	# import graphics
-	def import_graphics(self,name):
-		self.animations = {'idle':[],'move':[],'attack':[]}
-		main_path = f'graphics/monsters/{name}/'
+	def import_graphics(self,name,moves):
+		sheet = pygame.image.load(name + '.png').convert_alpha()
+		self.animations = moves
+
+		j = 0
 		for animation in self.animations.keys():
-			self.animations[animation] = import_folder(main_path + animation)
+			self.animations[animation] = import_animations(sheet,TILESIZE,TILESIZE*2,3,j)
+			j += 1
 
 	def get_player_distance_direction(self,player):
 		enemy_vec = pygame.math.Vector2(self.rect.center)
@@ -102,3 +93,36 @@ class Enemy(Entity):
 	def enemy_update(self,player):
 		self.get_status(player)
 		self.actions(player)
+
+class Blob(Enemy):
+	def __init__(self,pos,groups,obstacle_sprites):
+		monster_name = 'blob'
+		monster_move = {'idle':[],'move':[],'attack': []}
+		super().__init__(monster_name,monster_move,pos,groups,obstacle_sprites)
+		self.health = 10
+		self.exp = 10
+		self.speed = 3
+		self.attack_damage = 1
+		self.resistance = 0
+		self.attack_radius = TILESIZE * 2
+		self.notice_radius = TILESIZE * 4
+		self.attack_type = 'basic'
+
+class Rat(Enemy):
+	def __init__(self,pos,groups,obstacle_sprites):
+		monster_name = 'rat'
+		monster_move = {'north': [],'south': [],'west': [],'east': [],
+						'northeast': [],'northwest': [],'southeast': [], 'southwest': [],
+						'north_attack':[],'south_attack':[],'west_attack':[],'east_attack':[],
+						'northeast_attack':[],'northwest_attack':[],'southeast_attack':[],'southwest_attack':[],
+						'north_idle':[],'south_idle':[],'west_idle':[],'east_idle':[],
+						'northeast_idle':[],'northwest_idle':[],'southeast_idle':[],'southwest_idle':[]}
+		super.__init__(monster_name,monster_move,pos,groups,obstacle_sprites)
+		self.health = 10
+		self.exp = 10
+		self.speed = 3
+		self.attack_damage = 1
+		self.resistance = 0
+		self.attack_radius = TILESIZE * 2
+		self.notice_radius = TILESIZE * 4
+		self.attack_type = 'basic'

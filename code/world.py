@@ -2,8 +2,8 @@ import pygame
 from settings import *
 from support import *
 from random import choice
-from player import Player
-from enemy import Enemy
+from player import *
+from enemy import *
 from npc import NPC
 from weapon import Weapon
 from ui import UI
@@ -79,16 +79,13 @@ class World:
 									self.player.hitbox.x = x
 									self.player.hitbox.y = y	
 
-
 							else:
-								if col == '1': monster_name = 'bamboo'
-								elif col == '2': monster_name = 'spirit'
-								elif col == '3': monster_name ='raccoon'
-								else: monster_name = 'squid'
-								Enemy(monster_name,
-								(x,y),
+								if col == '1': Blob((x,y),
 								[self.visible_sprites],
 								self.obstacle_sprites)
+								elif col == '2': pass #monster_name = 'spirit'
+								elif col == '3': pass #monster_name ='raccoon'
+								else: pass
 
 	# create attack
 	def create_attack(self):	

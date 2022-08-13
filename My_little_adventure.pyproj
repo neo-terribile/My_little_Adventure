@@ -147,6 +147,7 @@
     <Content Include="graphics\monsters\bamboo\move\1.png" />
     <Content Include="graphics\monsters\bamboo\move\2.png" />
     <Content Include="graphics\monsters\bamboo\move\3.png" />
+    <Content Include="graphics\monsters\blob.png" />
     <Content Include="graphics\monsters\raccoon\attack\0.png" />
     <Content Include="graphics\monsters\raccoon\attack\1.png" />
     <Content Include="graphics\monsters\raccoon\attack\2.png" />

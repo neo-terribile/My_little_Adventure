@@ -76,8 +76,8 @@ class UI:
 	
 		# display ui
 	def display(self,player):
-		self.show_bars(player.health,player.stats['health'],3,36,10,10)
-		self.show_bars(player.energy,player.stats['energy'],3,68,10,52)
+		self.show_bars(player.health,player.max_health,3,36,10,10)
+		self.show_bars(player.energy,player.max_energy,3,68,10,52)
 
 		self.show_exp(player.exp)
 
