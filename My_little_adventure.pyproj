@@ -378,11 +378,11 @@
     <Content Include="graphics\weapons\sai\left.png" />
     <Content Include="graphics\weapons\sai\right.png" />
     <Content Include="graphics\weapons\sai\up.png" />
-    <Content Include="graphics\weapons\sword\down.png" />
+    <Content Include="graphics\weapons\sword\south.png" />
     <Content Include="graphics\weapons\sword\full.png" />
-    <Content Include="graphics\weapons\sword\left.png" />
-    <Content Include="graphics\weapons\sword\right.png" />
-    <Content Include="graphics\weapons\sword\up.png" />
+    <Content Include="graphics\weapons\sword\west.png" />
+    <Content Include="graphics\weapons\sword\east.png" />
+    <Content Include="graphics\weapons\sword\north.png" />
     <Content Include="maps\hometown\hometown.png" />
     <Content Include="maps\hometown\hometown_blocks.csv" />
     <Content Include="maps\hometown\hometown_details.csv" />

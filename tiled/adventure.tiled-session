@@ -5,11 +5,11 @@
     },
     "activeFile": "tilemaps/hometown/hometown.tmx",
     "expandedProjectPaths": [
-        "tilemaps/hometown",
         "tilesets",
-        "tilemaps",
+        ".",
+        "tilemaps/hometown",
         "tilemaps/world1",
-        "."
+        "tilemaps"
     ],
     "fileStates": {
         "blocks.tsx": {
@@ -25,11 +25,11 @@
             }
         },
         "tilemaps/hometown/hometown.tmx": {
-            "scale": 0.75,
-            "selectedLayer": 1,
+            "scale": 0.33,
+            "selectedLayer": 2,
             "viewCenter": {
-                "x": 849.3333333333333,
-                "y": 781.3333333333333
+                "x": 886.3636363636363,
+                "y": 427.27272727272725
             }
         },
         "tilemaps/tilesets/blocks.tsx": {
@@ -78,29 +78,29 @@
         },
         "tilesets/blocks.tsx": {
             "dynamicWrapping": false,
-            "scaleInDock": 1,
+            "scaleInDock": 0.33,
             "scaleInEditor": 1
         },
         "tilesets/details.tsx": {
             "dynamicWrapping": false,
-            "scaleInDock": 1,
+            "scaleInDock": 0.33,
             "scaleInEditor": 1
         },
         "tilesets/entities.tsx": {
             "dynamicWrapping": false,
-            "scaleInDock": 1,
+            "scaleInDock": 0.33,
             "scaleInEditor": 1
         },
         "tilesets/grass.tsx": {
-            "scaleInDock": 1,
+            "scaleInDock": 0.33,
             "scaleInEditor": 1
         },
         "tilesets/ground.tsx": {
-            "scaleInDock": 1,
+            "scaleInDock": 0.33,
             "scaleInEditor": 1
         },
         "tilesets/objects.tsx": {
-            "scaleInDock": 1,
+            "scaleInDock": 0.33,
             "scaleInEditor": 1
         }
     },

@@ -7,8 +7,9 @@ from debug import debug
 class Player(Entity):
 	def __init__(self,pos,groups,obstacle_sprites,create_attack,destroy_attack,create_magic):
 		super().__init__(groups)
-		self.image = get_sprite(0,TILESIZE * 9,TILESIZE,TILESIZE,ss_player)
+		self.image = get_sprite(0,TILESIZE * 2,TILESIZE,TILESIZE*2,ss_player)
 		self.rect = self.image.get_rect(topleft = pos)
+		self.mask = pygame.mask.from_surface(self.image)
 		self.hitbox = self.rect.inflate(0,-10)
 
 		# graphics setup
@@ -59,7 +60,7 @@ class Player(Entity):
 							'northeast_idle':[],'northwest_idle':[],'southeast_idle':[],'southwest_idle':[]}
 		j = 0
 		for animation in self.animations.keys():
-			self.animations[animation] = import_animations(sheet,TILESIZE,TILESIZE,3,j)
+			self.animations[animation] = import_animations(sheet,TILESIZE,TILESIZE*2,3,j)
 			j += 1
 
 	# player input
@@ -109,7 +110,7 @@ class Player(Entity):
 					self.status = 'southeast'
 				else:
 					self.direction.x = 1
-					self.direction.y = 1
+					self.direction.y = 0
 					self.status = 'east'
 
 			elif keys[pygame.K_LEFT]:
@@ -123,7 +124,7 @@ class Player(Entity):
 					self.status = 'southwest'
 				else:
 					self.direction.x = -1
-					self.direction.y = 1
+					self.direction.y = 0
 					self.status = 'west'
 			else:
 				self.direction.x = 0
