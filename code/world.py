@@ -14,7 +14,7 @@ class World:
 	def __init__(self):
 		# get the display surface 
 		self.screen = pygame.display.get_surface()
-		self.lvl = 'hometown'
+		self.location = 'hometown'
 
 		# sprite group setup
 		self.visible_sprites = YSortCameraGroup()
@@ -27,17 +27,21 @@ class World:
 		# attack sprites
 		self.current_attack = None
 		# sprite setup
+		self.mapchange = True
 		self.create_map()
 		# user interface 
 		self.ui = UI()
 
 	# create map
-	def create_map(self):	
+	def create_map(self):
+		self.ground_surf = pygame.image.load('maps/' + self.location + '/' + self.location + '.png').convert()
+		self.ground_rect = self.ground_surf.get_rect(topleft = (0,0))
+
 		layouts = {
-			'block': import_csv_layout('maps/' + self.lvl + '/' + self.lvl + '_blocks.csv'),
-			'grass': import_csv_layout('maps/' + self.lvl + '/' + self.lvl + '_grass.csv'),
-			'object': import_csv_layout('maps/' + self.lvl + '/' + self.lvl + '_objects.csv'),
-			'entities': import_csv_layout('maps/' + self.lvl + '/' + self.lvl + '_entities.csv')}
+			'block': import_csv_layout('maps/' + self.location + '/' + self.location + '_blocks.csv'),
+			'grass': import_csv_layout('maps/' + self.location + '/' + self.location + '_grass.csv'),
+			'object': import_csv_layout('maps/' + self.location + '/' + self.location + '_objects.csv'),
+			'entities': import_csv_layout('maps/' + self.location + '/' + self.location + '_entities.csv')}
 		graphics = {
 			'grass': import_folder('graphics/grass'),
 			'objects': import_folder('graphics/objects')}
@@ -109,8 +113,8 @@ class World:
 		self.current_magic = None
 
 	# change map
-	def change_map(self,level):
-		self.lvl = level
+	def change_map(self,location):
+		self.location = location
 		for sprite in self.obstacle_sprites:
 			sprite.kill()
 		for sprite in self.trigger_sprites:
@@ -126,11 +130,15 @@ class World:
 				collision_sprites = pygame.sprite.spritecollide(player_sprite,self.trigger_sprites,False)
 				for target_sprite in collision_sprites:
 						if target_sprite.sprite_type == 'world1':
+							self.mapchange = True
 							self.change_map(target_sprite.sprite_type)
 
 	# update and draw the game
 	def run(self):
-		self.visible_sprites.custom_draw(self.player,self.lvl)
+		if self.mapchange == True:
+			self.visible_sprites.location_draw(self.location)
+			self.mapchange = False
+		self.visible_sprites.custom_draw(self.player)
 		self.visible_sprites.update()
 		self.visible_sprites.enemy_update(self.player)
 		self.player_interactions()
@@ -148,27 +156,19 @@ class YSortCameraGroup(pygame.sprite.Group):
 
 
 	# creating the floor
-		self.hometown_surf = pygame.image.load('maps/hometown/hometown.png').convert()
-		self.hometown_rect = self.hometown_surf.get_rect(topleft = (0,0))
+	def location_draw(self,location):
 
-		self.world1_surf = pygame.image.load('maps/world1/world1.png').convert()
-		self.world1_rect = self.world1_surf.get_rect(topleft = (0,0))
+		self.ground_surf = pygame.image.load('maps/' + location + '/' + location + '.png').convert()
+		self.ground_rect = self.ground_surf.get_rect(topleft = (0,0))
 
-	def custom_draw(self,player,level):
-		self.lvl = level
+	def custom_draw(self,player):
 
 		# getting the offset 
 		self.offset.x = player.rect.centerx - self.half_width
 		self.offset.y = player.rect.centery - self.half_height
 
-		# drawing the floor
-		if self.lvl == 'hometown':
-			hometown_offset_pos = self.hometown_rect.topleft - self.offset
-			self.screen.blit(self.hometown_surf,hometown_offset_pos)
-
-		if self.lvl == 'world1':
-			world1_offset_pos = self.world1_rect.topleft - self.offset
-			self.screen.blit(self.world1_surf,world1_offset_pos)
+		ground_offset_pos = self.ground_rect.topleft - self.offset
+		self.screen.blit(self.ground_surf,ground_offset_pos)
 
 		# for sprite in self.sprites():
 		for sprite in sorted(self.sprites(),key = lambda sprite: sprite.rect.centery):

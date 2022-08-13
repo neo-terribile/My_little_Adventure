@@ -44,7 +44,12 @@ class Player(Entity):
 		self.health = self.stats['health'] * 0.8
 		self.energy = self.stats['energy'] * 0.2
 		self.speed = self.stats['speed']
-		self.exp = 123
+
+		# level
+		self.level_up = False
+		self.level = 1
+		self.exp_next_level = 10
+		self.exp = 0
 
 		# loot
 		self.gold = 0
@@ -185,6 +190,14 @@ class Player(Entity):
 			if 'attack' in self.status:
 				self.status = self.status.replace('_attack','')
 
+	# level up
+	def level_up(self):
+		if self.exp >= self.exp_next_level:
+			self.level += 1
+			self.exp_next_level = self.exp_next_level * self.level
+
+		pass
+
 	# cooldowns
 	def cooldowns(self):
 		current_time = pygame.time.get_ticks()
@@ -218,7 +231,6 @@ class Player(Entity):
 	
 	# update player
 	def update(self):
-		debug(self.mask)
 		self.input()
 		self.cooldowns()
 		self.get_status()
