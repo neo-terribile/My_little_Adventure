@@ -9,7 +9,7 @@ class UI:
 		# general 
 		self.screen = pygame.display.get_surface()
 		self.font = pygame.font.Font(UI_FONT,UI_FONT_SIZE)
-		self.sheet = pygame.image.load(ss_ui).convert_alpha()
+		#self.sheet = pygame.image.load(ss_ui).convert_alpha()
 		self.bg = get_sprite(0,0,256, 32,ss_ui)
 
 

@@ -19,16 +19,21 @@ class World:
 		# sprite group setup
 		self.visible_sprites = YSortCameraGroup()
 		self.obstacle_sprites = pygame.sprite.Group()
+
 		self.player_sprite = pygame.sprite.Group()
 		self.enemie_sprites = pygame.sprite.Group()
+
 		self.trigger_sprites = pygame.sprite.Group()
-		self.attackable_sprites = pygame.sprite.Group()
 
 		# attack sprites
 		self.current_attack = None
+		self.attack_sprites = pygame.sprite.Group()
+		self.attackable_sprites = pygame.sprite.Group()
+
 		# sprite setup
 		self.mapchange = True
 		self.create_map()
+
 		# user interface 
 		self.ui = UI()
 
@@ -60,7 +65,7 @@ class World:
 									pass
 						if style == 'grass':
 							random_grass_image = choice(graphics['grass'])
-							Tile((x,y),[self.visible_sprites,self.obstacle_sprites],'grass',random_grass_image)
+							Tile((x,y),[self.visible_sprites,self.obstacle_sprites, self.attackable_sprites],'grass',random_grass_image)
 						if style == 'object':
 							surf = graphics['objects'][int(col)]
 							Tile((x,y),[self.visible_sprites,self.obstacle_sprites],'object',surf)
@@ -89,7 +94,7 @@ class World:
 
 	# create attack
 	def create_attack(self):	
-		self.current_attack = Weapon(self.player,[self.visible_sprites])
+		self.current_attack = self.player.weapon(self.player,[self.visible_sprites, self.attack_sprites])
 
 	# remove attack
 	def remove_attack(self):
@@ -109,11 +114,23 @@ class World:
 			self.current_magic.kill()
 		self.current_magic = None
 
+	# attack logic
+	def player_attack_logic(self):
+		if self.attack_sprites:
+			for attack_sprite in self.attack_sprites:
+				collision_sprites = pygame.sprite.spritecollide(attack_sprite,self.attackable_sprites,False)
+				if collision_sprites:
+					for target_sprite in collision_sprites:
+						if target_sprite.sprite_type == 'grass':
+							target_sprite.kill()
+						else:
+							target_sprite.get_damage(self.player,attack_sprite.sprite_type)
+
 	# change map
 	def change_map(self,location):
 		self.location = location
 		for sprite in self.obstacle_sprites:
-			sprite.kill()
+			sprite.kill() 
 		for sprite in self.trigger_sprites:
 			sprite.kill()
 
@@ -139,6 +156,7 @@ class World:
 		self.visible_sprites.update()
 		self.visible_sprites.enemy_update(self.player)
 		self.player_interactions()
+		self.player_attack_logic()
 		self.ui.display(self.player)
 
 # sorts the sprites for 3D effect

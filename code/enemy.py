@@ -4,7 +4,6 @@ from support import *
 
 class Enemy(Entity):
 	def __init__(self,monster_name,monster_moves,pos,groups,obstacle_sprites):
-
 		# general setup
 		super().__init__(groups)
 		self.sprite_type = 'enemy'
@@ -26,14 +25,15 @@ class Enemy(Entity):
 	
 	# import graphics
 	def import_graphics(self,name,moves):
-		sheet = pygame.image.load(name + '.png').convert_alpha()
+		sheet = pygame.image.load('graphics/monsters/'+ name +'.png').convert_alpha()
 		self.animations = moves
 
 		j = 0
 		for animation in self.animations.keys():
-			self.animations[animation] = import_animations(sheet,TILESIZE,TILESIZE*2,3,j)
+			self.animations[animation] = import_animations(sheet,TILESIZE,TILESIZE,3,j)
 			j += 1
-
+	
+	# distance to player
 	def get_player_distance_direction(self,player):
 		enemy_vec = pygame.math.Vector2(self.rect.center)
 		player_vec = pygame.math.Vector2(player.rect.center)
@@ -46,6 +46,7 @@ class Enemy(Entity):
 
 		return (distance,direction)
 
+	#get status
 	def get_status(self, player):
 		distance = self.get_player_distance_direction(player)[0]
 
@@ -58,15 +59,15 @@ class Enemy(Entity):
 		else:
 			self.status = 'idle'
 
+	# actions
 	def actions(self,player):
 		if self.status == 'attack':
 			self.attack_time = pygame.time.get_ticks()
-			print('attack')
 		elif self.status == 'move':
 			self.direction = self.get_player_distance_direction(player)[1]
 		else:
 			self.direction = pygame.math.Vector2()
-
+	#animates enemie
 	def animate(self):
 		animation = self.animations[self.status]
 		
@@ -79,12 +80,14 @@ class Enemy(Entity):
 		self.image = animation[int(self.frame_index)]
 		self.rect = self.image.get_rect(center = self.hitbox.center)
 
+	# cooldown
 	def cooldown(self):
 		if not self.can_attack:
 			current_time = pygame.time.get_ticks()
 			if current_time - self.attack_time >= self.attack_cooldown:
 				self.can_attack = True
 
+	#update
 	def update(self):
 		self.move(self.speed)
 		self.animate()
@@ -111,12 +114,7 @@ class Blob(Enemy):
 class Rat(Enemy):
 	def __init__(self,pos,groups,obstacle_sprites):
 		monster_name = 'rat'
-		monster_move = {'north': [],'south': [],'west': [],'east': [],
-						'northeast': [],'northwest': [],'southeast': [], 'southwest': [],
-						'north_attack':[],'south_attack':[],'west_attack':[],'east_attack':[],
-						'northeast_attack':[],'northwest_attack':[],'southeast_attack':[],'southwest_attack':[],
-						'north_idle':[],'south_idle':[],'west_idle':[],'east_idle':[],
-						'northeast_idle':[],'northwest_idle':[],'southeast_idle':[],'southwest_idle':[]}
+		monster_move = {'idle':[],'move':[],'attack': []}
 		super.__init__(monster_name,monster_move,pos,groups,obstacle_sprites)
 		self.health = 10
 		self.exp = 10

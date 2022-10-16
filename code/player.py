@@ -1,6 +1,7 @@
 import pygame 
 from settings import *
 from support import *
+from weapon import Sword
 from debug import debug
 
 
@@ -27,7 +28,7 @@ class Player(Entity):
 		self.create_attack = create_attack
 		self.destroy_attack = destroy_attack
 		self.weapon_index = 0
-		self.weapon = list(weapon_data.keys())[self.weapon_index]
+		self.weapon = Sword
 		self.can_switch_weapon = True
 		self.weapon_switch_time = None
 		self.switch_duration_cooldown = 200
@@ -152,7 +153,7 @@ class Player(Entity):
 				self.attacking = True
 				self.attack_time = pygame.time.get_ticks()
 				style = list(magic_data.keys())[self.magic_index]
-				strength = list(magic_data.values())[self.magic_index]['strength'] + self.stats['magic']
+				strength = list(magic_data.values())[self.magic_index]['strength'] + self.energy
 				cost = list(magic_data.values())[self.magic_index]['cost']
 				self.create_magic(style,strength,cost)
 
@@ -232,7 +233,6 @@ class Player(Entity):
 		self.image = animation[int(self.frame_index)]
 		self.rect = self.image.get_rect(center = self.hitbox.center)
 		
-	
 	# update player
 	def update(self):
 		self.input()
@@ -241,5 +241,3 @@ class Player(Entity):
 		self.animate()
 		self.move(self.speed)
 		self.level_up()
-
-

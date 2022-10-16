@@ -3,13 +3,13 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "tilesets/ground.tsx",
+    "activeFile": "tilemaps/world1/world1.tmx",
     "expandedProjectPaths": [
         ".",
-        "tilemaps/hometown",
         "tilesets",
-        "tilemaps",
-        "tilemaps/world1"
+        "tilemaps/world1",
+        "tilemaps/hometown",
+        "tilemaps"
     ],
     "fileStates": {
         "blocks.tsx": {
@@ -25,11 +25,11 @@
             }
         },
         "tilemaps/hometown/hometown.tmx": {
-            "scale": 0.5,
-            "selectedLayer": 0,
+            "scale": 0.33,
+            "selectedLayer": 4,
             "viewCenter": {
-                "x": 975,
-                "y": 674
+                "x": 1060.6060606060605,
+                "y": 878.7878787878788
             }
         },
         "tilemaps/tilesets/blocks.tsx": {
@@ -69,11 +69,11 @@
             }
         },
         "tilemaps/world1/world1.tmx": {
-            "scale": 0.125,
-            "selectedLayer": 2,
+            "scale": 0.25,
+            "selectedLayer": 5,
             "viewCenter": {
-                "x": 1280,
-                "y": 1600
+                "x": 2052,
+                "y": 3332
             }
         },
         "tilesets/blocks.tsx": {
@@ -96,8 +96,8 @@
             "scaleInEditor": 1
         },
         "tilesets/ground.tsx": {
-            "scaleInDock": 0.75,
-            "scaleInEditor": 1
+            "scaleInDock": 0.5,
+            "scaleInEditor": 0.33
         },
         "tilesets/objects.tsx": {
             "scaleInDock": 0.33,
@@ -115,13 +115,13 @@
     "map.width": 60,
     "openFiles": [
         "tilemaps/hometown/hometown.tmx",
-        "tilesets/ground.tsx"
+        "tilemaps/world1/world1.tmx"
     ],
     "project": "adventure.tiled-project",
     "recentFiles": [
         "tilemaps/hometown/hometown.tmx",
-        "tilesets/ground.tsx",
         "tilemaps/world1/world1.tmx",
+        "tilesets/ground.tsx",
         "tilesets/blocks.tsx",
         "tilesets/details.tsx",
         "tilesets/entities.tsx",
@@ -131,6 +131,7 @@
         "tilesets/grass.tsx",
         "blocks.tsx"
     ],
+    "resizeMap.removeObjects": false,
     "tileset.lastUsedFormat": "tsx",
     "tileset.tileSize": {
         "height": 64,
