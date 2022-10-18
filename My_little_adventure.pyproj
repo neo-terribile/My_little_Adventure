@@ -23,6 +23,8 @@
   <ItemGroup>
     <Compile Include="code\debug.py" />
     <Compile Include="code\enemy.py" />
+    <Compile Include="code\game.py" />
+    <Compile Include="code\menu.py" />
     <Compile Include="code\npc.py" />
     <Compile Include="code\world.py" />
     <Compile Include="code\main.py" />
