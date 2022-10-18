@@ -11,7 +11,7 @@ class MainMenu():
 					sys.exit()
 
 			image_path = pygame.image.load('graphics/img/menu_background.png')
-			menu_background = pygame.transform.scale(image_path, (WIDTH,HEIGTH))
+			menu_background = pygame.transform.scale(image_path, RESOLUTION)
 			title = self.font.render('Main Menu', True, black)
 			title_rect = title.get_rect(x=TILESIZE, y=10)
 

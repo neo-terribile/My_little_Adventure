@@ -1,12 +1,10 @@
 from ctypes.wintypes import RGB
 
 # game setup
-#WIDTH    = 1280	
-#HEIGTH   = 720
+HEIGHT   = 1080
 WIDTH    = 1920	
-HEIGTH   = 1080
+RESOLUTION = (WIDTH, HEIGHT)
 FPS      = 60
-
 TILESIZE = 64
 
 #spritesheets
@@ -15,8 +13,8 @@ ss_player = 'graphics/player/player.png'
 
 
 # ui 
-BAR_HEIGHT = TILESIZE / 2 -8
-BAR_WIDTH = TILESIZE * 4 -6
+BAR_HEIGHT = TILESIZE / 2 - 8
+BAR_WIDTH = TILESIZE * 4 - 6
 ITEM_BOX_SIZE = 80
 UI_FONT = 'graphics/font/joystix.ttf'
 UI_FONT_SIZE = 18

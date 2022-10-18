@@ -8,7 +8,7 @@ from debug import debug
 class Player(Entity):
 	def __init__(self,pos,groups,obstacle_sprites,create_attack,destroy_attack,create_magic):
 		super().__init__(groups)
-		self.image = get_sprite(0,TILESIZE * 2,TILESIZE,TILESIZE*2,ss_player)
+		self.image = get_sprite(0,TILESIZE*2,TILESIZE,TILESIZE*2,ss_player)
 		self.rect = self.image.get_rect(topleft = pos)
 		self.mask = pygame.mask.from_surface(self.image)
 		self.hitbox = self.rect.inflate(-24,-96)

@@ -33,7 +33,7 @@ def import_animations(sheet,width,height,frames,j):
 			sprite.blit(sheet, (0,0), (width *i, height * j, width, height))
 			sprite.set_colorkey(black)  # sprite_background off
 			surface_list.append(sprite)
-			i +=1
+			i += 1
 	return surface_list
 	
 # get sprite

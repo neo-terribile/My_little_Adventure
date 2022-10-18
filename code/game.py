@@ -7,7 +7,7 @@ class Game:
 	def __init__(self):
 		# general setup
 		pygame.init()
-		self.screen = pygame.display.set_mode((WIDTH,HEIGTH))
+		self.screen = pygame.display.set_mode(RESOLUTION)
 		pygame.display.set_caption('Zelda')
 		self.clock = pygame.time.Clock()
 		self.font = pygame.font.Font('graphics/font/Pixel.ttf', 32)
@@ -40,9 +40,9 @@ class Game:
 					sys.exit()
 
 			image_path = pygame.image.load('graphics/img/menu_background.png')
-			menu_background = pygame.transform.scale(image_path, (WIDTH,HEIGTH))
+			menu_background = pygame.transform.scale(image_path, RESOLUTION)
 			title = self.font.render('Paus', True, black)
-			title_rect = title.get_rect(x=TILESIZE, y=10)
+			title_rect = title.get_rect(x = TILESIZE, y = 10)
 
 			resume	= button(TILESIZE, TILESIZE * 2, get_sprite(0, TILESIZE * 2, TILESIZE * 4, TILESIZE, ss_ui),'Resume')
 			load	= button(TILESIZE, TILESIZE * 4, get_sprite(0, TILESIZE * 2, TILESIZE * 4, TILESIZE, ss_ui),'Save / Load')
@@ -83,7 +83,7 @@ class Game:
 					sys.exit()
 
 			image_path = pygame.image.load('graphics/img/menu_background.png')
-			menu_background = pygame.transform.scale(image_path, (WIDTH,HEIGTH))
+			menu_background = pygame.transform.scale(image_path, RESOLUTION)
 			title = self.font.render('Options', True, black)
 			title_rect = title.get_rect(x=TILESIZE, y=10)
 
@@ -126,7 +126,7 @@ class Game:
 					sys.exit()
 
 			image_path = pygame.image.load('graphics/img/menu_background.png')
-			menu_background = pygame.transform.scale(image_path, (WIDTH,HEIGTH))
+			menu_background = pygame.transform.scale(image_path, RESOLUTION)
 			title = self.font.render('Main Menu', True, black)
 			title_rect = title.get_rect(x=TILESIZE, y=10)
 
@@ -163,7 +163,7 @@ class Game:
 
 	# title screen
 	def title(self):
-		maxy = HEIGTH
+		maxy = HEIGHT
 		i = 0
 		while True:
 			for event in pygame.event.get():
@@ -175,7 +175,7 @@ class Game:
 					self.menu()
 
 			image_path = pygame.image.load('graphics/img/titlescreen.png')
-			titlescreen = pygame.transform.scale(image_path, (WIDTH,HEIGTH*2))
+			titlescreen = pygame.transform.scale(image_path, (WIDTH, HEIGHT*2))
 
 			self.screen.fill('black')
 			self.screen.blit(titlescreen,(0,-i))
